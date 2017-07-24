@@ -1,0 +1,126 @@
+@import url(/fonts/css/font-awesome.min.css);
+/* Image */
+
+	.image {
+		border-radius: 40px;
+		border: 0;
+		display: inline-block;
+		position: relative;
+	}
+
+		.image img {
+			border-radius: 40px;
+			display: block;
+		}
+
+		.image.left, .image.right {
+			max-width: 40%;
+		}
+
+			.image.left img, .image.right img {
+				width: 100%;
+			}
+
+		.image.left {
+			float: left;
+			margin: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+
+		.image.right {
+			float: right;
+			margin: 0 0 1em 1.5em;
+			top: 0.25em;
+		}
+
+		.image.fit {
+			display: block;
+			margin: 0 0 2em 0;
+			width: 100%;
+		}
+
+			.image.fit img {
+				width: 100%;
+			}
+
+		.image.main {
+			display: block;
+			margin: 0 0 3em 0;
+			width: 100%;
+		}
+
+			.image.main img {
+				width: 100%;
+			}
+
+
+/* Spotlight */
+
+	.spotlight {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		align-items: center;
+		border-bottom: solid 2px;
+		margin-bottom: 3em;
+	}
+
+		.spotlight .image {
+			width: 40%;
+		}
+
+			.spotlight .image img {
+				width: 100%;
+			}
+
+		.spotlight .content {
+			padding: 2em 3em 0.1em 3em;
+			width: 60%;
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.spotlight .image {
+				width: 55%;
+			}
+
+			.spotlight .content {
+				padding: 1.5em 2em 0.1em 2em;
+				width: 45%;
+			}
+
+		}
+
+
+		@media screen and (max-width: 736px) {
+
+			.spotlight {
+				display: block;
+				margin-bottom: 2em;
+			}
+
+				.spotlight .image {
+					width: 100%;
+				}
+
+				.spotlight .content {
+					padding: 1em 2em 0.1em 2em;
+					width: 100%;
+				}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			.spotlight .content {
+				padding: 1em 1.5em 0.1em 1.5em;
+			}
+
+		}
+
+
+
