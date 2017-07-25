@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use App\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
@@ -23,9 +24,15 @@ class GalleryController extends Controller
      */
     public function index(Request $request)
     {
+
         if(isset($request->searchtext)) {
             $searchtext = strtolower($request->searchtext);
-            $galery= Gallery::where(DB::raw('LOWER(title)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+            if (App::getLocale() == 'en')
+            $galery= Gallery::where(DB::raw('LOWER(title_en)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+            if (App::getLocale() == 'ru')
+                $galery= Gallery::where(DB::raw('LOWER(title_ru)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+            if (App::getLocale() == 'az')
+                $galery= Gallery::where(DB::raw('LOWER(title_az)'), 'LIKE', "%".$searchtext."%")->paginate(3);
         }
         else
             $galery = Gallery::paginate(3);
@@ -49,8 +56,8 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'text'=>'required',
+            'title_az' => 'required',
+            'text_az'=>'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
         if(isset($request->galery_id)) {
             $galery = Gallery::find($request->galery_id);
@@ -80,9 +87,15 @@ class GalleryController extends Controller
             $image->save();
             $galery->image_id=$image->id;
         }}
-// save image to database
-        $galery->title = $request->title;
-        $galery->text = $request->text;
+
+
+                $galery->title_en = $request->title_en;
+                $galery->text_en= $request->text_en;
+                $galery->title_ru= $request->title_ru;
+                $galery->text_ru = $request->text_ru;
+                $galery->title_az= $request->title_az;
+                $galery->text_az= $request->text_az;
+
         $galery->save();
         return redirect()->action('GalleryController@index');
     }
@@ -115,9 +128,6 @@ class GalleryController extends Controller
         $galery=Gallery::find($id);
 
         $images=Image::where('parent_id',$galery->image->id)->paginate(3);
-
-//            DB::table('images')
-//            ->where('parent_id',$galery->image->id)->get();
 
         return view('admin.galery.image.index',array('images'=>$images,'parent_id'=>$galery->image->id ,'galery_id'=>$id));
     }

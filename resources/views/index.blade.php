@@ -125,12 +125,12 @@
 				<!----start-top-nav---->
 				<nav class="top-nav">
 					<ul class="top-nav">
-						<li class="aktive"><a href="#home" class="scroll">Главная</a></li>
-						<li class="page-scroll"><a href="#fea" class="scroll">О Клубе</a></li>
-						<li class="page-scroll"><a href="#port" class="scroll">Галерея</a></li>
-						<li class="page-scroll"><a href="#blog" class="scroll">Новости</a></li>
-						<li class="page-scroll"><a href="#test" class="scroll">Проекты</a></li>
-						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Контакты</a></li>
+						<li class="aktive"><a href="#home" class="scroll">@lang('words.home')</a></li>
+						<li class="page-scroll"><a href="#fea" class="scroll">@lang('words.about')</a></li>
+						<li class="page-scroll"><a href="#port" class="scroll">@lang('words.galery')</a></li>
+						<li class="page-scroll"><a href="#blog" class="scroll">@lang('words.news')</a></li>
+						<li class="page-scroll"><a href="#test" class="scroll">@lang('words.projects')</a></li>
+						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">@lang('words.contact')</a></li>
 					</ul>
 					<!--menu-->
 
@@ -152,35 +152,15 @@
 			<div id="fea" class="features">
 				<div class="container">
 					<div class="head text-center">
-						<h3><span> </span> Наша История</h3>
-						<p>Не секрет, что по мере взросления детей, перед мамами
-							возникают новые задачи, а порой и неизвестные вызовы,
-							требующие своевременных и ответственных решений. С целью
-							информационно-образовательной поддержки молодых мам, в
-							январе 2014 года, было создано Сообщество мам «Active
-							Mom's Club» - единая платформа для разделения опыта и
-							знаний, касающиеся не только воспитания и развития детей,
-							семьи в целом, но и личностного роста самих женщин.
-							За три года активной деятельности было организовано и
-							проведено свыше 40 мероприятий, при участии специалистов
-							из разных сфер. Личное общение с профессионалами,
-							которые не просто выслушают, а могут дать ценный жизненный
-							совет, бесценно, и мамы знают это, как нельзя лучше.
-							Начавший свою деятельность в facebook, спустя всего год
-							«Active Mom's Club» становится первым и самым популярным
-							объединением мам в Баку и на сегодняшний день объединяет 6 000 мам в социальной сети.
-							Главная миссия клуба – создание сообщества, которое сплотит
-							вокруг себя умных и талантливых мам, окажет содействие в
-							решении злободневных вопросов, организует интересный и
-							полезный досуг совместно с детьми.
-							Мы будем и дальше расти, и развиваться, принося пользу обществу! </p>
+						<h3><span> </span> @lang('words.history')</h3>
+						<p>historuuu </p>
 						</div>
 						<!---- start-features-grids---->
 						<div class="features-grids text-center">
 
 							<div class="col-md-3 features-grid">
 								<a href="javascript:void(0);" class="flip"><span class="fea-icon1"><i class="fa fa-trophy"> </i> </span>
-									<h3>Достижения</h3>
+									<h3>@lang('words.achievement')</h3>
 								</a>
 								<!--Done-->
 							</div>
@@ -200,7 +180,7 @@
 
 								<div class="col-md-3 features-grid">
 									<a href="javascript:void(0);" class="hidex"><span class="fea-icon1"><i class="fa fa-briefcase"> </i> </span>
-										<h3>Эксперты</h3>
+										<h3>@lang('words.expert')</h3>
 									</a>
 									<!--Done-->
 								</div>
@@ -231,7 +211,7 @@
 
 								<div class="col-md-3 features-grid">
 									<a href="javascript:void(0);" class="hiteam" ><span class="fea-icon1"><i class="fa fa-users"> </i> </span>
-										<h3>Команда</h3>
+										<h3>@lang('words.team')</h3>
 									</a>
 								</div>
 								
@@ -286,13 +266,7 @@
                       <li class="active"><a href="#">1</a></li>
                       <li><a href="#">2</a></li>
                       <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">6</a></li>
-                      <li><a href="#">7</a></li>
-                      <li><a href="#">8</a></li>
-                      <li><a href="#">9</a></li>
-                      <li><a href="#">10</a></li>
+
                       <li><a href="#">right</a></li>
                     </ul>
                 </div>
@@ -352,14 +326,7 @@
                       <li><a href="#">left</a></li>
                       <li class="active"><a href="#">1</a></li>
                       <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">6</a></li>
-                      <li><a href="#">7</a></li>
-                      <li><a href="#">8</a></li>
-                      <li><a href="#">9</a></li>
-                      <li><a href="#">10</a></li>
+
                       <li><a href="#">right</a></li>
                     </ul>
                 </div>
@@ -382,7 +349,7 @@
 		<!--start-portfolio-->
 		<div id="port" class="portfolio portfolio-box">
 			<div class="head text-center">
-				<h3><span> </span> Галерея</h3>
+				<h3><span> </span> @lang('words.galery')</h3>
 			</div>
 			<!--galerylery-->
 
@@ -400,12 +367,7 @@
                       <li class="active"><a href="#">1</a></li>
                       <li><a href="#">2</a></li>
                       <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">6</a></li>
-                      <li><a href="#">7</a></li>
-                      <li><a href="#">8</a></li>
-                      <li><a href="#">9</a></li>
+                      <
                       <li><a href="#">10</a></li>
                       <li><a href="#">right</a></li>
                     </ul>
@@ -441,13 +403,7 @@
                       <li class="active"><a href="#">1</a></li>
                       <li><a href="#">2</a></li>
                       <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">6</a></li>
-                      <li><a href="#">7</a></li>
-                      <li><a href="#">8</a></li>
-                      <li><a href="#">9</a></li>
-                      <li><a href="#">10</a></li>
+
                       <li><a href="#">right</a></li>
                     </ul>
                 </div>
@@ -495,7 +451,7 @@
 		<div id="blog" class="blog">
 			<div class="container">
 				<div class="head text-center">
-					<h3><span> </span> Новости</h3>
+					<h3><span> </span> @lang('words.news')</h3>
 				</div>
 			</div>
 			<!---- start-blog-time-line---->
@@ -616,7 +572,7 @@
 				<div  id="test" class="testmonials">
 					<div class="container">
 						<div class="head text-center">
-							<h3><span> </span> Проекты</h3>
+							<h3><span> </span> @lang('words.projects')</h3>
 						</div>
 
 						<!--script of projects-->
@@ -703,11 +659,11 @@
 				<div class="contact-grids">
 					<div class="col-md-6 contact-left">
 						<h3><img src="{{asset('/image/ico/contactss.png')}}"
-							alt="Contacts Icon" width="40" height="40"> Контакты</h3>
+							alt="Contacts Icon" width="40" height="40"> @lang('words.contact')</h3>
 							<p><i class="fa fa-map-marker" style="color: #1B242F"> </i> ***</p>
 							<p><i class="fa fa-phone-square fa-lg" style="color: #1B242F"></i> +994-50-365-45-71</p>								
 						</span>
-						<h4>Подписаться на Active Mom's Club:</h4>
+						<h4>@lang('words.follow')</h4>
 						<a class="social" href="https://www.facebook.com/ActiveMomsClub/" 
 						target="_blank">
 						<i class="fa fa-facebook-square fa-2x"></i></a>
@@ -717,10 +673,10 @@
 						<a class="social" href="https://www.youtube.com/channel/UCTPEmIERJjc9_QnjtNUjRdg" target="_blank">
 							<i class="fa fa-youtube-square fa-2x"></i></a>
 							<form>
-								<input type="text" value="Иия" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+								<input type="text" value="@lang('words.name')" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
 								<input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'info@activemoms.club';}">
-								<textarea onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;">Письмо *</textarea>
-								<span class="submit-btn"><input type="submit" value="Отправить"></span>
+								<textarea onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;">@lang('words.letter') *</textarea>
+								<span class="submit-btn"><input type="submit" value="@lang('words.send')"></span>
 							</form>
 						</div>
 						<div class="col-md-6 contact-right">

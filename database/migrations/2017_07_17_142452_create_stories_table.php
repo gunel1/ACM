@@ -15,9 +15,15 @@ class CreateStoriesTable extends Migration
     {
         Schema::create('stories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('subtitle');
-            $table->string('text');
+            $table->string('title_en')->nullable();
+            $table->string('title_ru')->nullable();
+            $table->string('title_az')->nullable();
+            $table->string('subtitle_en')->nullable();
+            $table->string('subtitle_ru')->nullable();
+            $table->string('subtitle_az')->nullable();
+            $table->string('text_en')->nullable();
+            $table->string('text_ru')->nullable();
+            $table->string('text_az')->nullable();
             $table->string('link');
             $table->integer('image_id');
             $table->timestamps();

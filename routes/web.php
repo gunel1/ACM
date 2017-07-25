@@ -11,6 +11,12 @@
 |
 */
 
+//Route::get('/{locale}', function ($locale) {
+//
+//        App::setLocale($locale);
+//    return view('index');
+//});
+
 Route::get('/', function () {
     return view('index');
 });
@@ -49,5 +55,3 @@ Route::group(['prefix' => 'adminpanel'], function () {
 //    Route::post('/dropdownValues/update', 'DropdownController@updateDropdownValue');
 });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -36,8 +36,10 @@
                                                 @if(isset($g->image->path))
 
                                                     <img src="{{$g->getImageUrlAttribute()}}" alt="text" >  @endif
-                                                <hr>  {{$g->title}}</a><p>
-                                                <i>{{$g->text}}</i></p>
+                                                <hr> </a>
+
+                                            <p><i>{{$g->title_az}}</i></p>
+                                            <p><i>{{$g->text_az}}</i></p>
                                     </div>
                                     </a>
                                     <div class="row">

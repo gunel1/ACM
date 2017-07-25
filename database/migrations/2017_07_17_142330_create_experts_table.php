@@ -15,8 +15,12 @@ class CreateExpertsTable extends Migration
     {
         Schema::create('experts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('profession');
+            $table->string('name_en')->nullable();
+            $table->string('name_ru')->nullable();
+            $table->string('name_az')->nullable();
+            $table->string('profession_en')->nullable();
+            $table->string('profession_ru')->nullable();
+            $table->string('profession_az')->nullable();
             $table->integer('image_id');
             $table->timestamps();
         });

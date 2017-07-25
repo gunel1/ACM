@@ -31,12 +31,12 @@
                     <form class="form-horizontal form-label-left" novalidate style="margin-top: 5%; width:90%;margin-left: 5%;" action="{{ URL::to('/adminpanel/galery') }}" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
+<h1>English</h1>
                         <div class="item form-group" >
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title  <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title" required="required"  value="{{$galery->title}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" required="required"  value="{{$galery->title_en}}" type="text">
                             </div>
                         </div>
 
@@ -45,10 +45,45 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text"  value="{{$galery->text}}" required="required" type="text">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  value="{{$galery->text_en}}" required="required" type="text">
+                            </div>
+                        </div>
+<hr>
+                        <h1>Russian</h1>
+                        <div class="item form-group" >
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title  <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru" required="required"  value="{{$galery->title_ru}}" type="text">
                             </div>
                         </div>
 
+
+                        <div class="item form-group" >
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_ru"  value="{{$galery->text_ru}}" required="required" type="text">
+                            </div>
+                        </div>
+                        <hr>
+                        <h1>Azerbaijani</h1>
+                        <div class="item form-group" >
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title  <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" required="required"  value="{{$galery->title_az}}" type="text">
+                            </div>
+                        </div>
+
+
+                        <div class="item form-group" >
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  value="{{$galery->text_az}}" required="required" type="text">
+                            </div>
+                        </div>
 
                         <input type="hidden"  name="galery_id" value="{{$galery->id}}"><br>
 
