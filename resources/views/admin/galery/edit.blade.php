@@ -11,9 +11,6 @@
                         <h1 style="margin-left: 5%">EDIT Galery</h1>
                         <hr>
 
-                    <div class="row">
-                        <br>
-                    </div>
                     @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <ul>
@@ -23,29 +20,25 @@
                             </ul>
                         </div>
                     @endif
-                    <br>
-                    <br>
-                    <br>
-
 
                     <form class="form-horizontal form-label-left" novalidate style="margin-top: 5%; width:90%;margin-left: 5%;" action="{{ URL::to('/adminpanel/galery') }}" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <h1>English</h1>
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" required="required"  value="{{$galery->title_en}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" value="{{$galery->title_en}}" type="text">
                             </div>
                         </div>
 
 
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  value="{{$galery->text_en}}" required="required" type="text">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  value="{{$galery->text_en}}" type="text">
                             </div>
                         </div>
 <hr>
@@ -69,19 +62,19 @@
                         <hr>
                         <h1>Azerbaijani</h1>
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title  <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" required="required"  value="{{$galery->title_az}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_az"   value="{{$galery->title_az}}" type="text">
                             </div>
                         </div>
 
 
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  value="{{$galery->text_az}}" required="required" type="text">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_az"  value="{{$galery->text_az}}"  type="text">
                             </div>
                         </div>
 

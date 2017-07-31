@@ -47,8 +47,8 @@ $(function() {
 	return this;
 	};
 
-	// galery container
-	var $rgGallery			= $('#rg-galery'),
+	// gallery container
+	var $rgGallery			= $('#rg-gallery'),
 	// carousel container
 	$esCarousel			= $rgGallery.find('div.es-carousel-wrapper'),
 	// the carousel items
@@ -252,7 +252,7 @@ $(function() {
 	Gallery.init();
 	
 	/*
-	Example to add more items to the galery:
+	Example to add more items to the gallery:
 	
 	var $new  = $('<li><a href="#"><img src="images/thumbs/1.jpg" data-large="images/1.jpg" alt="image01" data-description="From off a hill whose concave womb reworded" /></a></li>');
 	Gallery.addItems( $new );

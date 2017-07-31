@@ -38,7 +38,7 @@ class Gallery extends Model
             parent::delete();
             $image->delete();
         }
-        else parent::delete();
+         parent::delete();
 
     }
     public function image()

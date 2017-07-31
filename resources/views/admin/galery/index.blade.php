@@ -15,13 +15,12 @@
                     <div  class="panel-heading" style="margin-right: 2%; margin-left: 0%;">
                         <div class="well well-sm" style="height: 70px; width:100%; margin-left: 0%;">
                             <form action="{{URL::to('/adminpanel/galery')}}"  class="col-xs-4 col-lg-4" method="GET" class="" style="width: 70%;">
-                                <input type="submit" class="btn btn-success" value="SEARCH" style="height: 48px;">
-                                <input type="searchtext" placeholder="Search..." name="searchtext" >
+                                <input type="submit" class="btn btn-success" value="@lang('words.search')" style="height: 48px;">
+                                <input type="searchtext" placeholder="@lang('words.search')..." name="searchtext" >
                             </form>
 
 
-                            <a class="btn btn-success" href="{{URL::to('/adminpanel/galery/create')}}" style="height: 40px;font-size: 18px;float: right;"><i class="fa fa-plus fa-fw" style="color:white;"></i>
-                            </a>
+                            <a class="btn btn-success" href="{{URL::to('/adminpanel/galery/create')}}" style="height: 40px;font-size: 18px;float: right;">@lang('words.createalbum')</a>
 
 
                         </div>
@@ -38,8 +37,8 @@
                                                     <img src="{{$g->getImageUrlAttribute()}}" alt="text" >  @endif
                                                 <hr> </a>
 
-                                            <p><i>{{$g->title_az}}</i></p>
-                                            <p><i>{{$g->text_az}}</i></p>
+                                            <p><i>{{$g->title_ru}}</i></p>
+                                            <p><i>{{$g->text_ru}}</i></p>
                                     </div>
                                     </a>
                                     <div class="row">

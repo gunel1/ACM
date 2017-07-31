@@ -27,8 +27,8 @@
     // Configure/customize these variables.
     var showChar = 400; //How many characters are shown by default
     var ellipsestext = "...";
-    var moretext = "Читать далее";
-    var lesstext = "Скрыть текст";
+    var moretext = "@lang('words.more')";
+    var lesstext = "@lang('words.less')";
     
 
     $('.more').each(function() {
@@ -110,9 +110,9 @@
 				<!----start-top-nav---->
 				<nav class="top-nav">
 					<ul class="top-nav">
-						<li class="active" class="page-scroll"><a href="#test" class="scroll">Статьи</a></li>
-						<li class="page-scroll"><a href="{{URL::to('/')}}" >Назад</a></li>
-						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Конец</a></li>
+						<li class="active" class="page-scroll"><a href="#test" class="scroll">@lang('words.story')</a></li>
+						<li class="page-scroll"><a href="{{URL::to('/')}}" >@lang('words.back')</a></li>
+						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">@lang('words.end')</a></li>
 					</ul>
 					<a href="#" id="pull"><i class="fa fa-bars fa-2x" style="color: #FD3B01; margin: 0.6em 0.6em"></i></a>
 				</nav>
@@ -128,7 +128,7 @@
 		<div  id="test" class="testmonials">
 			<div class="container">
 				<div class="head text-center">
-					<h3><span> </span> Статьи</h3>
+					<h3><span> </span> @lang('words.story')</h3>
 				</div>
 			</div>
 		</div>

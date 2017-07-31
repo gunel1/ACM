@@ -9,7 +9,7 @@ return [
     | This value is limit for the number of cover photos a store user can upload
     */
 
-    'max_file_size' => "4", //mb
+
     //'base_url' =>"http://13.95.154.68/",
     'base_url' =>"http://localhost:8000/storage/", //addition for testing
 

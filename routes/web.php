@@ -11,18 +11,15 @@
 |
 */
 
-//Route::get('/{locale}', function ($locale) {
+Route::group(['middleware' => ['web']], function () {
+
+Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+
+Route::get('/','PageController@index');
 //
-//        App::setLocale($locale);
+//Route::get('/home', function () {
 //    return view('index');
 //});
-
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/home', function () {
-    return view('index');
-});
 
 Route::get('/403', function () {
     return view('errors.403');
@@ -38,13 +35,29 @@ Route::get('/momsblog',function (){
 Route::get('/momscan',function (){
     return view('momscan');
 }
-
 );
-Route::group(['prefix' => 'adminpanel'], function () {
+
+
+Route::get('/album/{id}', 'PageController@getImages');
+
+    Route::group(['prefix' => 'adminpanel'], function () {
     Route::get('/', 'AdminController@index');
+
+    Route::resource('history','HistoryController');
+
+    Route::resource('achievement','AchievementController');
+
+    Route::resource('expert','ExpertController');
+
     Route::resource('galery', 'GalleryController');
     Route::delete('galery/image/{id}', 'GalleryController@deleteImage');
     Route::post('galery/image', 'GalleryController@storeImage');
+
+    Route::delete('video/{id}', 'GalleryController@deleteVideo');
+    Route::get('video', 'GalleryController@showVideo');
+    Route::post('video', 'GalleryController@storeVideo');
+    Route::get('video/edit/{id}', 'GalleryController@createVideo');
+
     Route::get('/info', 'AdminController@getUserInfo');
     Route::get('/info/edit', 'AdminController@editUserInfo');
     Route::post('/info/store', 'AdminController@storeUserInfo');
@@ -55,3 +68,4 @@ Route::group(['prefix' => 'adminpanel'], function () {
 //    Route::post('/dropdownValues/update', 'DropdownController@updateDropdownValue');
 });
 Auth::routes();
+});

@@ -12,7 +12,7 @@
 
 
 
-                    <div id="stores" class="panel-heading" style="margin-right: 2%; margin-left: 0%;">
+                    <div  class="panel-heading" style="margin-right: 2%; margin-left: 0%;">
                         <div class="well well-sm" style="height: 70px; width:100%; margin-left: 0%;">
 
                             @if (count($errors) > 0)
@@ -24,11 +24,15 @@
                                     </ul>
                                 </div>
                             @endif
-                                <form action="{{ URL::to('/adminpanel/galery/image') }}"  class="col-xs-4 col-lg-4" method="POST" class="" style="width: 70%;" enctype="multipart/form-data">
-                                 <input type="file" name="image" class="btn btn-file">
+
+
+
+                                <form action="{{ URL::to('/adminpanel/galery/image') }}"  class="col-xs-4 col-lg-4" method="POST" style="width: 70%;" enctype="multipart/form-data">
+
+
+                                 <input type="file" name="images[]"  onchange="upload(this)" class="btn btn-file" multiple accept="image/*">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <input type="hidden" name="parent_id" value="{{$parent_id}}">
-                                <input type="submit" class="btn btn-success " value="Add Picture"  style="height: 40px;font-size: 18px;float: right;">
                                     <input name="galery_id" type="hidden" value="{{$galery_id}}">
                             </form>
                         </div>
@@ -75,10 +79,16 @@
                 </div>
             </div>
         </div>
+
     </section>
+
     </section>
     <script>
 
+        function upload(element){
+            element.parentElement.submit();
+
+        }
         function showAlarm(btn) {
 
 

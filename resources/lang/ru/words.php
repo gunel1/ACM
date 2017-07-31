@@ -17,7 +17,24 @@ return [
     'history'=>'Наша История',
     'achievement'=>'Достижения',
     'expert'=>'Эксперты',
-    'team'=>'Команда'
+    'team'=>'Команда',
+    'kiv'=>'СМИ О Нас',
+    'blogmum'=>'Блог Мам',
+    'back'=>'Назад',
+    'end'=>'Конец',
+    'event'=>'Мероприятия',
+    'story'=>'Статьи',
+    'library'=>'Библиотека',
+    'logout'=>'Выйти',
+    'login'=>'Login',
+    'amc'=>'Active MOMS  CLUB ADMIN PANEL',
+    'image'=>'Kartinka',
+     'video'=>'Video',
+    'search'=>'Hayti',
+    'createalbum'=>'Sozdat albom',
+    'adpic'=>'dobavit kartinka',
+    'more'=>'Читать далее',
+    'less'=>'Скрыть текст',
 
 
 ];
