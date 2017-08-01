@@ -19,6 +19,7 @@ class CreateMassmediaTable extends Migration
             $table->string('title_ru')->nullable();
             $table->string('title_az')->nullable();
             $table->string('link');
+            $table->integer('image_id');
             $table->timestamps();
         });
     }

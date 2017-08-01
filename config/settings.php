@@ -14,6 +14,10 @@ return [
     'base_url' =>"http://localhost:8000/storage/", //addition for testing
 
     'galery_base_path'=>"images/galery/image/",
+    'expert_base_path'=>"images/expert/",
+     'team_base_path'=>"images/team/",
+    'massmedia_base_path'=>"images/massmedia/",
+
 
     //'store_cover_base_path' => "public/", addition for local testing
     //'store_profile_base_path' => "public/", addition for local testing

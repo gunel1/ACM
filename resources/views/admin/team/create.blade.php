@@ -8,7 +8,7 @@
             <div class="" >
                 <div class="item  " style="margin-top: 1%; box-shadow: 1px 1px 1px black;">
                     <div class="thumbnail" style="margin-top: 1%">
-                        <h1 style="margin-left: 5%">ADD NEW Album </h1>
+                        <h1 style="margin-left: 5%">ADD NEW Team member </h1>
                         <hr>
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
@@ -19,61 +19,85 @@
                                 </ul>
                             </div>
                         @endif
-                        <form class="form-horizontal form-label-left" novalidate style="margin-top: 5%; width:90%;margin-left: 5%;" action="{{ URL::to('/adminpanel/galery') }}" method="post" enctype="multipart/form-data">
+                        <form class="form-horizontal form-label-left" novalidate style="margin-top: 5%; width:90%;margin-left: 5%;" action="{{ URL::to('/adminpanel/team') }}" method="post" enctype="multipart/form-data">
 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <h1>English</h1>
                             <div class="item form-group" >
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="name_en" type="text">
                                 </div>
                             </div>
 
 
                             <div class="item form-group" >
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_en"  type="text">
+                                </div>
+                            </div>
+                            <div class="item form-group" >
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text">
+                                    <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text"></textarea>
+
                                 </div>
                             </div>
+
  <hr>
                             <h1>Russian</h1>
                             <div class="item form-group" >
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_ru"> Title <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru" required="required" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="name_ru" type="text">
                                 </div>
                             </div>
 
 
                             <div class="item form-group" >
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_ru" required="required" type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_ru"  type="text">
                                 </div>
                             </div>
+                            <div class="item form-group" >
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_ru"  type="text"></textarea>
 
-                            <hr>
+                                </div>
+                            </div>
+     <hr>
                             <h1>Azerbaijani</h1>
                             <div class="item form-group" >
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_az" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="name_az" type="text">
                                 </div>
                             </div>
 
 
+                            <div class="item form-group" >
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_az"  type="text">
+                                </div>
+                            </div>
                             <div class="item form-group" >
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_az" type="text">
+                                    <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_az"  type="text"></textarea>
+
                                 </div>
                             </div>
 
@@ -99,7 +123,7 @@
         <script>
 
             function redirect(){
-                window.location="{{URL::to('/adminpanel/galery')}}";
+                window.location="{{URL::to('/adminpanel/team')}}";
             }
         </script>
 

@@ -11,7 +11,7 @@ class Gallery extends Model
 
         if (isset($this->image_id)) {
             $imageName = $this->image->path;
-            $file_path = public_path('/images/galery/image/') . $imageName;
+            $file_path = public_path('/storage/images/galery/image/') . $imageName;
             if (file_exists("$file_path")) {
                 @unlink("$file_path");
             }
@@ -31,7 +31,7 @@ class Gallery extends Model
         if (isset($this->image)) {
             $image=Image::find($this->image->id);
             $imageName = $this->image->path;
-            $file_path = public_path('/images/galery/image/') . $imageName;
+            $file_path = public_path('/storage/images/galery/image/') . $imageName;
             if (file_exists("$file_path")) {
                 @unlink("$file_path");
             }

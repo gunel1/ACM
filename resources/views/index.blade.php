@@ -233,18 +233,34 @@
 
 				<div class="clearfix"></div>
 				<br>
-				<section class="thumb">
+				@foreach($experts as $expert)
+					<section class="thumb">
+						<div class="polaroid">
+							<img src="{{$expert->getImageUrlAttribute()}}" alt="{{$expert->name_en}}" style="width: 100%">
+						</div>
+						<div>
 
-					<div class="polaroid">
-						<img src="{{URL::to('image/ex/rufik.jpg')}}" alt="Руфат Алиев" style="width: 100%">
-					</div>
-					<div>
-						<h4>Руфат Алиев</h4>
-						<h5>Эксперт в области образования</h5>
-					</div>
+						@php
 
-					<!--NashiEkspertiend-->
-				</section>
+							switch(App::getLocale()){
+
+                                case  'en' :  echo '<h4>'.$expert->name_en.'</h4>';
+							                  echo '<h5>'.$expert->profession_en.'</h5>';
+                                              break;
+                                case  'ru':   echo '<h4>'.$expert->name_ru.'</h4>';
+							                  echo '<h5>'.$expert->profession_ru.'</h5>';
+                                              break;
+                                case  'az':   echo '<h4>'.$expert->name_az.'</h4>';
+							                  echo '<h5>'.$expert->profession_az.'</h5>';
+                                              break;
+                                }
+						@endphp
+						</div>
+
+						<!--NashiEkspertiend-->
+					</section>
+
+					@endforeach
 			</div>
 
 			<div class="col-md-3 features-grid">
@@ -263,22 +279,42 @@
 						<h4>Команда «Active Mom’s Club» – это союз молодых, талантливых, целеустремленных и ярких людей, которые объединившись, создали мощную созидательную энергию. Каждый член команды готов сделать больше, чем требуется, здесь нет «пассажиров».</h4>
 						<br>
 						<div class="clearfix"></div>
+						@foreach($teams as $team)
 						<div class="spotlight">
 							<div class="polaroid">
-								<img src="img/tm/rugiya.jpg" alt="Rugiya_Afsharli" style="width: 100%" />
+								<img src="{{$team->getImageUrlAttribute()}}" alt="{{$team->name_ru}}" style="width: 100%" />
 							</div>
-							<div class="content">
-								<!--toDo like this-->			<a href="javascript:void(0);">
-									<h3>Ругия Ашрафли</h3>
-									<h4>Учредитель, творческий руководитель</h4>
-								</a>
-								<p style="font-size: 14px;"><b>Ругия</b> - человек с высоким уровнем мотивации, неисчерпаемой энергией и великой жаждой достижений.
-									По образованию психолог, окончила БГУ, факультет «Психология и социальные науки». Последние годы работает над самыми различными проектами, как творческого, так и коммерческого характера: ведет авторский проект «Наши за рубежом» и занимается общественной деятельностью – являясь творческим руководителем Сообщества мам «Active Mom’s Club». <br>
-									<i><b>«Мечтаю основать большую компанию и семейный центр, сплотив вокруг себя всех своих единомышленников, но самое главное - хочу быть хорошей мамой для своего сына».
-										</b></i></p>
-							</div>
-						</div>
 
+							<div class="content">
+								<!--toDo like this-->
+								<a href="javascript:void(0);">
+
+									@php
+
+										switch(App::getLocale()){
+
+                                            case  'en' :  echo '<h3>'.$team->name_en.'</h3>';
+                                                          echo '<h4>'.$team->profession_en.'</h4></a>';
+                                                          echo '<p style="font-size: 14px;"><b>'.$team->name_en.'</b>'.$team->text_en.'<br><i><b> text</b></i></p>';
+                                                          break;
+                                            case  'ru':   echo '<h3>'.$team->name_ru.'</h3>';
+                                                          echo '<h4>'.$team->profession_ru.'</h4></a>';
+                                                          echo '<p style="font-size: 14px;"><b>'.$team->name_ru.'</b>'.$team->text_ru.'<br><i><b> text</b></i></p>';
+                                                          break;;
+                                            case  'az':   echo '<h3>'.$team->name_az.'</h3>';
+                                                          echo '<h4>'.$team->profession_az.'</h4></a>';
+                                                          echo '<p style="font-size: 14px;"><b>'.$team->name_az.'</b>'.$team->text_az.'<br><i><b> text</b></i></p>';
+                                                          break;
+                                            }
+									@endphp
+
+
+							</div>
+
+
+
+						</div>
+						@endforeach
 						<div class="clearfix"></div>
 
 						<!--end-->

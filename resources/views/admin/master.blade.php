@@ -122,14 +122,14 @@
 
                 </li>
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/team')}}" >
                         <i class="fa fa-th-list"></i>
                         <span>@lang('words.team')</span>
                     </a>
 
                 </li>
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/massmedia')}}" >
                         <i class="fa fa-magic"></i>
                         <span>@lang('words.kiv')</span>
                     </a>

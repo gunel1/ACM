@@ -49,6 +49,11 @@ Route::get('/album/{id}', 'PageController@getImages');
 
     Route::resource('expert','ExpertController');
 
+    Route::resource('team','TeamController');
+
+    Route::resource('massmedia','MassmediaController');
+
+
     Route::resource('galery', 'GalleryController');
     Route::delete('galery/image/{id}', 'GalleryController@deleteImage');
     Route::post('galery/image', 'GalleryController@storeImage');

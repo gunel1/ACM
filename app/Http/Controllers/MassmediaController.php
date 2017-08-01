@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Expert;
 use App\Image;
+use App\Massmedia;
 use Illuminate\Http\Request;
 
-class ExpertController extends Controller
+class MassmediaController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware(['auth','admin']);
@@ -24,15 +23,15 @@ class ExpertController extends Controller
         if(isset($request->searchtext)) {
             $searchtext = strtolower($request->searchtext);
             if (App::getLocale() == 'en')
-                $experts= Expert::where(DB::raw('LOWER(name_en)'), 'LIKE', "%".$searchtext."%")->paginate(10);
+                $medias= Massmedia::where(DB::raw('LOWER(name_en)'), 'LIKE', "%".$searchtext."%")->paginate(10);
             if (App::getLocale() == 'ru')
-                $experts= Expert::where(DB::raw('LOWER(name_ru)'), 'LIKE', "%".$searchtext."%")->paginate(10);
+                $medias= Massmedia::where(DB::raw('LOWER(name_ru)'), 'LIKE', "%".$searchtext."%")->paginate(10);
             if (App::getLocale() == 'az')
-                $experts= Expert::where(DB::raw('LOWER(name_az)'), 'LIKE', "%".$searchtext."%")->paginate(10);
+                $medias= Massmedia::where(DB::raw('LOWER(name_az)'), 'LIKE', "%".$searchtext."%")->paginate(10);
         }
         else
-            $experts = Expert::paginate(10);
-        return view('admin.expert.index')->with(array('experts'=>$experts));
+            $medias = Massmedia::paginate(10);
+        return view('admin.massmedia.index')->with(array('medias'=>$medias));
     }
 
     /**
@@ -42,7 +41,7 @@ class ExpertController extends Controller
      */
     public function create()
     {
-        return view('admin.expert.create');
+        return view('admin.massmedia.create');
     }
 
     /**
@@ -54,28 +53,28 @@ class ExpertController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name_ru' => 'required',
-            'profession_ru' => 'required',
+            'title_ru' => 'required',
+            'link' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
         if (isset($request->id)){
-            $expert = Expert::find($request->id);
+            $media = Massmedia::find($request->id);
             if (isset($request->image)) {
-                $expert->deleteImageFromFolder();
-                $dir = config('settings.expert_base_path') . date("Y-m-d");
+                $media->deleteImageFromFolder();
+                $dir = config('settings.massmedia_base_path') . date("Y-m-d");
                 $path = $request->file('image')->store($dir);
                 $filename = substr($path, strlen($dir) + 1);
-                $expert->image->file_name = $filename;
-                $expert->image->extension = $request->image->extension();
-                $expert->image->file_size = filesize($request->image);
-                $expert->image->path = date("Y-m-d") . '/' . $filename;
-                $expert->image->save();
+                $media->image->file_name = $filename;
+                $media->image->extension = $request->image->extension();
+                $media->image->file_size = filesize($request->image);
+                $media->image->path = date("Y-m-d") . '/' . $filename;
+                $media->image->save();
             }
         }
         else {
             $this->validate($request, ['image' => 'required']);
-            $expert = new Expert();
+            $media = new Massmedia();
             if (isset($request->image)) {
-                $dir = config('settings.expert_base_path') . date("Y-m-d");
+                $dir = config('settings.massmedia_base_path') . date("Y-m-d");
                 $image = new Image();
                 $path = $request->file('image')->store($dir);
                 $filename = substr($path, strlen($dir) + 1);
@@ -84,17 +83,15 @@ class ExpertController extends Controller
                 $image->file_size = filesize($request->image);
                 $image->path = date("Y-m-d") . '/' . $filename;
                 $image->save();
-                $expert->image_id = $image->id;
+                $media->image_id = $image->id;
             }
         }
-        $expert->name_en = $request->name_en;
-        $expert->profession_en= $request->profession_en;
-        $expert->name_ru= $request->name_ru;
-        $expert->profession_ru = $request->profession_ru;
-        $expert->name_az= $request->name_az;
-        $expert->profession_az= $request->profession_az;
-        $expert->save();
-        return redirect()->action('ExpertController@index');
+        $media->title_en= $request->title_en;
+        $media->title_ru= $request->title_ru;
+        $media->title_az= $request->title_az;
+        $media->link= $request->link;
+        $media->save();
+        return redirect()->action('MassmediaController@index');
     }
     /**
      * Display the specified resource.
@@ -115,8 +112,8 @@ class ExpertController extends Controller
     public function edit($id)
     {
 
-        $expert = Expert::where('id', $id)->first();
-        return view('admin.expert.edit',array('expert'=>$expert));
+        $media = Massmedia::where('id', $id)->first();
+        return view('admin.massmedia.edit',array('media'=>$media));
     }
 
     /**
@@ -138,9 +135,9 @@ class ExpertController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {  $expert = Expert::find($id);
-        $expert->delete();
+    {  $media= Massmedia::find($id);
+        $media->delete();
         //files and images of store should be deleted
-        return redirect()->action('ExpertController@index');  //
+        return redirect()->action('MassmediaController@index');  //
     }
 }

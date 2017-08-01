@@ -23,14 +23,14 @@ class PageController extends Controller
        $albumlist=Gallery::paginate(12);
        $videos=Video::paginate(12);
        $experts=Expert::paginate(5);
-       $team=Team::get();
+       $teams=Team::get();
        $massmedia=Massmedia::paginate(12);
        $projects=Project::get();
        $events=Event::get();
        $library=Library::get();
        $history=History::first();
        return view('index')->withalbumlist($albumlist)->withvideos($videos)->withachievement($achievement)->withhistory($history)
-           ->withexperts($experts)->withteam($team)->withmassmedia($massmedia)->withprojects($projects)->withevents($events)->withlibrary($library);
+           ->withexperts($experts)->withteams($teams )->withmassmedia($massmedia)->withprojects($projects)->withevents($events)->withlibrary($library);
 
    }
 
