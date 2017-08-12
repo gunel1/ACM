@@ -196,6 +196,7 @@
 			</div>
 
 			<div class="panel" style="border-color: #FD3B01">
+				@if(isset($achievement))
 				@php
 
 					switch(App::getLocale()){
@@ -214,6 +215,7 @@
                         break;
                         }
 				@endphp
+					@endif
 			</div>
 
 
@@ -331,7 +333,7 @@
 				<!-- -->
 			</div>
 
-			<div class="aciq">
+			<php class="aciq">
 				<div class="clearfix"></div><br>
 				<br>
 				<div class="portfolio-pagination">
@@ -341,147 +343,44 @@
 					</ul>
 				</div>
 				<br>
+				<div hidden>{{$i=0}}</div>
+				@for($k=1; $k<=count($massmedia); $k++)
+
+
 				<div class="clearfix"></div>
-				<section class="thumb">
+					@foreach($massmedia as $m)
+
+			 <section class="thumb">
+
 					<div class="res">
 						<div class="gal">
-							<a href="http://ru.oxu.az/society/196122" target="_blank">
-								<img src="img/mm/kidsDay.jpg" alt="KidsDay" />
-								<div class="limit"><h5>Active Mom’s Club провело познавательное мероприятие ко Дню детей</h5></div>
+							<a href="{{$m->link}}" target="_blank">
+								<img src="{{$m->getImageUrlAttribute()}}" alt="" />
+
+								<div class="limit">
+									@php
+									$i++;
+									switch(App::getLocale())
+									{   case  'en' :  echo '<h5>'.$m->title_en.'</h5>';   break;
+                                        case  'ru':   echo '<h5>'.$m->title_ru.'</h5>';   break;
+                                        case  'az':   echo '<h5>'.$m->title_az.'</h5>';   break;
+                                    }
+								@endphp
+								</div>
 							</a>
 
 						</div>
 					</div>
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://ru.oxu.az/society/194292" target="_blank">
-								<img src="img/mm/beatform.jpg" alt="BeFit!" />
-								<div class="limit"><h5>Как безболезненно, быстро и недорого привести себя в форму?</h5></div>
-							</a>
-
-						</div>
-					</div>
-					<!--h5 elemek hamisinni-->
-					<div class="res">
-						<div class="gal">
-							<a href="http://ru.oxu.az/society/192753" target=_"blank">
-								<img src="img/mm/qwest.jpg" alt="Qwest" />
-								<div class="limit"><h5>Квест на природе – увлекательное времяпрепровождение для родителей и детей</h5></div>
-							</a>
-
-						</div>
-					</div>
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://lady.day.az/news/career/883901.html" target="_blank">
-								<img src="img/mm/kidsbookday.jpg" alt="KidsBook" />
-								<div class="limit"><h5>Мамы отметили в Баку Международный день детской книги.</h5></div>
-							</a>
-
-						</div>
-					</div>
-
 
 				</section>
-				<div class="clearfix"></div>
+					@if($i==4) @break; @endif
+					@endforeach
+					{{$k=4}}
 
-				<!--davam edirem-->
-
-				<section class="thumb">
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://lady.day.az/news/career/884961.html" target="_blank">
-								<img src="img/mm/handmaders.jpg" alt="Handmaders" />
-								<div class="limit"><h5>Азербайджанские "ХЕНДМЕЙДЕРЫ" приняли участие в международной выставке туризма</h5></div>
-							</a>
-
-						</div>
-					</div>
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://lady.day.az/news/career/871985.html" target="_blank">
-								<img src="img/mm/poleznyZavtrak.jpg" alt="HaveANiceDay!" />
-								<div class="limit"><h5>Презентован новый проект «ACTIVE MOM’S CLUB» - «МАМЫ В БИЗНЕСЕ»</h5></div>
-							</a>
-
-						</div>
-					</div>
-					<!--h5 elemek hamisinni-->
-					<div class="res">
-						<div class="gal">
-							<a href="http://www.1news.az/mobile/society/20170317081639377.html" target=_"blank">
-								<img src="img/mm/nenesaq.jpg" alt="GrandMothers4Ever" />
-								<div class="limit"><h5>В преддверии Новруз байрамы Active Mom’s Club представил социальный проект «Nənələr sağ olsun!»</h5></div>
-							</a>
-
-						</div>
-					</div>
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://aze.az/semeyniy-pokhod-v-gori-v-preddverii.html" target="_blank">
-								<img src="img/mm/noyruzbay.jpg" alt="«Novruz»" />
-								<div class="limit"><h5>Семейный поход в горы в преддверии Новруз Байрам.</h5></div>
-							</a>
-
-						</div>
-					</div>
+			@endfor
 
 
-				</section>
-				<div class="clearfix"></div>
 
-				<!--davam edirem-->
-
-				<section class="thumb">
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://lady.day.az/news/career/866487.html" target="_blank">
-								<img src="img/mm/mammMia.jpg" alt="MammaMia" />
-								<div class="limit"><h5>В Баку прошла тематическая вечеринка по мотивам мюзикла "MAMMA MIA"</h5></div>
-							</a>
-
-						</div>
-					</div>
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://lady.day.az/news/relations/854568.html" target="_blank">
-								<img src="img/mm/1mm.jpg" alt="Семейный поход: один из успешных проектов Active Mom`s Club" />
-								<div class="limit"><h5>Семейный поход: один из успешных проектов Active Mom`s Club</h5></div>
-							</a>
-
-						</div>
-					</div>
-					<!--h5 elemek hamisinni-->
-					<div class="res">
-						<div class="gal">
-							<a href="http://www.1news.az/society/20161220080804736.html" target=_"blank">
-								<img src="img/mm/qv.jpg" alt="Успешные мамы и их дети снялись в социальном проекте" />
-								<div class="limit"><h5>Успешные мамы и их дети снялись в социальном проекте</h5></div>
-							</a>
-
-						</div>
-					</div>
-
-					<div class="res">
-						<div class="gal">
-							<a href="http://ru.oxu.az/society/165644" target="_blank">
-								<img src="img/mm/artmosfera.jpg" alt="«АРТмосфера»" />
-								<div class="limit"><h5>Новый проект «Active Moms Club»: «АРТмосфера» </h5></div>
-							</a>
-
-						</div>
-					</div>
-
-
-				</section>
-				<div class="clearfix"></div>
 
 				<!--end-->
 				<div class="clearfix"></div>

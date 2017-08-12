@@ -9,9 +9,9 @@
 
                         <div class="thumbnail" style="margin-top: 1%">
                             <h1 style="margin-left: 5%">Achievement</h1>
-
+                             <a class="btn btn-success" href="{{URL::to('/adminpanel/achievement/create')}}" style="height: 40px;font-size: 18px;float: right; margin-right: 5%">create achievement</a>
+                        </div>
                           @foreach($ach as $a)
-                                @if(!isset($a->title_ru)) <a class="btn btn-success" href="{{URL::to('/adminpanel/achievement/create')}}" style="height: 40px;font-size: 18px;float: right;">create achievement</a> @endif
 
                                 <div class="productinfo text-center">
                                 English <h1>{{$a->title_en}}</h1>

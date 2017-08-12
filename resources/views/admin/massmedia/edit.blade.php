@@ -39,7 +39,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru"  value="{{$media->title->ru}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru"  value="{{$media->title_ru}}" type="text">
                             </div>
                         </div>
                         <hr>
@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
 
-                                <input type="file" name="image" class="btn btn-file">
+                                <input type="file" name="image"  class="btn btn-file" multiple accept="image/*">
 
                                 <br>
                                 <button type="button" class="btn btn-primary"  onclick="redirect()">Cancel</button>

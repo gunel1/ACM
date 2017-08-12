@@ -10,9 +10,9 @@
                     <div class="item" style="margin-top: 1%; box-shadow: 1px 1px 1px black;">
                         <div class="thumbnail" style="margin-top: 1%">
                             <h1 style="margin-left: 5%">@lang('words.history')</h1>
+                            <a class="btn btn-success" href="{{URL::to('/adminpanel/history/create')}}" style="height: 40px;font-size: 18px;float: right;">create history</a>
 
                               @foreach($his as $h)
-                                @if(!isset($h->title_ru)) <a class="btn btn-success" href="{{URL::to('/adminpanel/history/create')}}" style="height: 40px;font-size: 18px;float: right;">create history</a> @endif
 
                             <div class="productinfo text-center">
                                 English <h1>{{$h->title_en}}</h1>
