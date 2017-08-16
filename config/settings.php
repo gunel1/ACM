@@ -17,6 +17,11 @@ return [
     'expert_base_path'=>"images/expert/",
      'team_base_path'=>"images/team/",
     'massmedia_base_path'=>"images/massmedia/",
+    'event_base_path'=>"images/event/",
+    'story_base_path'=>"images/story/",
+    'library_base_path'=>"images/library/",
+    'blog_base_path'=>"images/blog/",
+    'project_base_path'=>"images/project/",
 
 
     //'store_cover_base_path' => "public/", addition for local testing

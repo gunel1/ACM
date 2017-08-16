@@ -333,33 +333,25 @@
 				<!-- -->
 			</div>
 
-			<php class="aciq">
+			<div class="aciq">
 				<div class="clearfix"></div><br>
 				<br>
 				<div class="portfolio-pagination">
 					<ul class="pagination">
-
-
+						{{$massmedia->render()}}
 					</ul>
 				</div>
 				<br>
 				<div hidden>{{$i=0}}</div>
-				@for($k=1; $k<=count($massmedia); $k++)
-
-
 				<div class="clearfix"></div>
 					@foreach($massmedia as $m)
-
-			 <section class="thumb">
-
+			@if($i%4==0)<section class="thumb"> @endif
 					<div class="res">
 						<div class="gal">
 							<a href="{{$m->link}}" target="_blank">
 								<img src="{{$m->getImageUrlAttribute()}}" alt="" />
-
 								<div class="limit">
 									@php
-									$i++;
 									switch(App::getLocale())
 									{   case  'en' :  echo '<h5>'.$m->title_en.'</h5>';   break;
                                         case  'ru':   echo '<h5>'.$m->title_ru.'</h5>';   break;
@@ -368,26 +360,18 @@
 								@endphp
 								</div>
 							</a>
-
 						</div>
 					</div>
-
-				</section>
-					@if($i==4) @break; @endif
+						<div hidden>{{$i++}}</div>
+				@if($i%4==0 )</section>@endif
 					@endforeach
-					{{$k=4}}
-
-			@endfor
-
-
-
-
+				@if((count($massmedia)%4<4 && count($massmedia)%4>0))</section> @endif
 				<!--end-->
 				<div class="clearfix"></div>
 				<br>
 				<div class="portfolio-pagination">
 					<ul class="pagination">
-
+						{{$massmedia->render()}}
 					</ul>
 				</div>
 				<br>
@@ -568,13 +552,14 @@
 				<div class="clearfix"> </div>
 				<div class="eveshow">
 					<div class="slideshow-container">
+						@php $n=count($events); $i=0; @endphp
+						@foreach($events as $event)
+
 						<div class="mySlides fade">
-							<div class="numbertext">1 / 18</div>
-							<img class="borad" src="{{URL::to('image/eve/events (1).png')}}" style="width:100%">
+							<div class="numbertext"> {{++$i}}/ {{$n}}</div>
+							<img class="borad" src="{{URL::to($event->getImageUrlAttribute())}}" style="width:100%">
 						</div>
-
-
-
+						@endforeach
 						<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1)">&#10095;</a>
 					</div>
@@ -640,12 +625,13 @@
 				<div class="libshow">
 
 					<section class="thumb">
+						@foreach($libraries as $library)
 						<div class="polaroid">
-							<a href="https://www.litmir.me/bd/?b=31235" target="_blank">
-								<img  src="img/lib/library1.jpeg" alt="После трех уже поздно" style="width: 100%">
+							<a href="{{$library->link}}" target="_blank">
+								<img  src="{{URL::to($library->getImageUrlAttribute())}}" alt="" style="width: 100%">
 							</a>
 						</div>
-
+@endforeach
 						<br>
 
 
@@ -699,20 +685,32 @@
 
 				<!-- navigation holder -->
 				<!-- item container -->
+@foreach($projects as $project)
+					<div class="spotlight">
+						<div class="image">
+							<img src="{{URL::to($project->getImageUrlAttribute())}}" alt="{{$project->title_ru}}" />
+						</div>
+						<div class="content">
+							<a href="{{$project->link}}" target="_blank">
+					@php
 
-				<div class="spotlight">
-					<div class="image">
-						<img src="img/proj/polezny_zavtrak.jpg" alt="Полезный завтрак" />
-					</div>
-					<div class="content">
-						<a href="http://www.1news.az/society/20160519092742407.html" target="_blank">
-							<h3>"Полезный завтрак" – семейный просветительский проект.</h3>
-						</a>
-						<p>Это возможность поделиться идеями, опытом, знаниями, касающиеся не только воспитания и развития детей, но и семьи в целом.</p>
+						switch(App::getLocale()){
+
+                            case  'en' :echo '<h3>'.$project->title_en.'</h3></a<p>'.$project->text_en.'</p>';
+
+                            break;
+                            case  'ru':echo '<h3>'.$project->title_ru.'</h3></a<p>'.$project->text_ru.'</p>';
+                            break;
+                            case  'az': echo '<h3>'.$project->title_az.'</h3></a<p>'.$project->text_az.'</p>';
+
+                            break;
+
+                            }
+					@endphp
 					</div>
 				</div>
 
-
+@endforeach
 			</div>
 		</section>
 
@@ -758,7 +756,7 @@
 			<form>
 				<input type="text" value="@lang('words.name')" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
 				<input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'info@activemoms.club';}">
-				<textarea onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;">@lang('words.letter') *</textarea>
+				<textarea onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;'">@lang('words.letter') *</textarea>
 				<span class="submit-btn"><input type="submit" value="@lang('words.send')"></span>
 			</form>
 		</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Achievement;
+use App\Blog;
 use App\Event;
 use App\Expert;
 use App\Gallery;
@@ -11,6 +12,7 @@ use App\Image;
 use App\Library;
 use App\Massmedia;
 use App\Project;
+use App\Story;
 use App\Team;
 use App\Video;
 use Illuminate\Http\Request;
@@ -29,16 +31,24 @@ class PageController extends Controller
        $events=Event::get();
        $library=Library::get();
        $history=History::first();
+
        return view('index')->withalbumlist($albumlist)->withvideos($videos)->withachievement($achievement)->withhistory($history)
-           ->withexperts($experts)->withteams($teams )->withmassmedia($massmedia)->withprojects($projects)->withevents($events)->withlibrary($library);
+           ->withexperts($experts)->withteams($teams )->withmassmedia($massmedia)->withprojects($projects)->withevents($events)->withlibraries($library);
 
    }
 
    public function getStories()
    {
-      //return redirect(URL::to('/'.App::getLocale().'stories'));
-   }
+       $stories = Story::all();
+       return view('storys')->withstories($stories);
 
+   }
+    public function getMomsBlog()
+    {
+        $blogs = Blog::all();
+        return view('momsblog')->withblogs($blogs);
+
+    }
    public function getImages($id){
 
        $galery=Gallery::find($id);

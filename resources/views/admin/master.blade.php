@@ -148,7 +148,7 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/event')}}" >
                         <i class="fa fa-th-list"></i>
                         <span>@lang('words.event')</span>
                     </a>
@@ -156,7 +156,7 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/story')}}" >
                         <i class="fa fa-th-list"></i>
                         <span>@lang('words.story')</span>
                     </a>
@@ -164,21 +164,21 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/library')}}" >
                         <i class="fa fa-magic"></i>
                         <span>@lang('words.library')</span>
                     </a>
 
                 </li>
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/blog')}}" >
                         <i class="fa fa-magic"></i>
                         <span>@lang('words.blogmum')</span>
                     </a>
 
                 </li>
                 <li class="sub-menu">
-                    <a href="{{URL::to('')}}" >
+                    <a href="{{URL::to('adminpanel/project')}}" >
                         <i class="fa fa-magic"></i>
                         <span>@lang('words.projects')</span>
                     </a>

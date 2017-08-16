@@ -8,7 +8,7 @@
             <div class="" >
                 <div class="item" style="margin-top: 1%; box-shadow: 1px 1px 1px black;">
                     <div class="thumbnail" style="margin-top: 1%">
-                        <h1 style="margin-left: 5%">EDIT Team member</h1>
+                        <h1 style="margin-left: 5%">EDIT Blog</h1>
                         <hr>
 
                     @if (count($errors) > 0)
@@ -21,7 +21,7 @@
                         </div>
                     @endif
 
-                    <form class="form-horizontal form-label-left" novalidate style="margin-top: 5%; width:90%;margin-left: 5%;" action="{{ URL::to('/adminpanel/team') }}" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal form-label-left" novalidate style="margin-top: 5%; width:90%;margin-left: 5%;" action="{{ URL::to('/adminpanel/blog') }}" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 <h1>English</h1>
@@ -29,7 +29,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="name_en" value="{{$team->name_en}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="name_en" value="{{$blog->name_en}}" type="text">
                             </div>
                         </div>
 
@@ -38,15 +38,14 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_en"  value="{{$team->profession_en}}" type="text">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_en"  value="{{$blog->profession_en}}" type="text">
                             </div>
                         </div>
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> text
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text">{{$team->text_en}}</textarea>
-
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"   value="{{$blog->text_en}}" type="text">
                             </div>
                         </div>
 <hr>
@@ -55,7 +54,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="name_ru" value="{{$team->name_ru}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="name_ru" value="{{$blog->name_ru}}" type="text">
                             </div>
                         </div>
 
@@ -64,15 +63,14 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_ru"  value="{{$team->profession_ru}}" type="text">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_ru"  value="{{$blog->profession_ru}}" type="text">
                             </div>
                         </div>
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> text
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_ru"  type="text">{{$team->text_ru}}</textarea>
-
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_ru"   value="{{$blog->text_ru}}" type="text">
                             </div>
                         </div>
   <hr>
@@ -81,7 +79,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="title" class="form-control col-md-7 col-xs-12"  name="name_az" value="{{$team->name_az}}" type="text">
+                                <input id="title" class="form-control col-md-7 col-xs-12"  name="name_az" value="{{$blog->name_az}}" type="text">
                             </div>
                         </div>
 
@@ -90,19 +88,18 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_az"  value="{{$team->profession_az}}" type="text">
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_az"  value="{{$blog->profession_az}}" type="text">
                             </div>
                         </div>
                         <div class="item form-group" >
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> text
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_az"  type="text">{{$team->text_az}}</textarea>
-
+                                <input id="text" class="form-control col-md-7 col-xs-12"  name="text_az"   value="{{$blog->text_az}}" type="text">
                             </div>
                         </div>
 
-                        <input type="hidden"  name="id" value="{{$team->id}}"><br>
+                        <input type="hidden"  name="id" value="{{$blog->id}}"><br>
 
 
                         <div class="form-group">
@@ -123,7 +120,7 @@
         </div>
         <script>
             function redirect(){
-                window.location="{{URL::to('/adminpanel/team')}}";
+                window.location="{{URL::to('/adminpanel/blog')}}";
             }
         </script>
         </section>

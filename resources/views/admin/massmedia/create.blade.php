@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <input type="file" name="image"  class="btn btn-file" multiple accept="image/*">
+                                    <input type="file" name="image"  class="btn btn-file"  accept="image/*">
 
                                     <br>
                                     <br>

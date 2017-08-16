@@ -24,10 +24,13 @@ class Expert extends Model
             $file_path = public_path('/storage/images/expert/') . $imageName;
             if (file_exists("$file_path")) {
                 @unlink("$file_path");
-
+                parent::delete();
             $image->delete();
         }
         parent::delete();
+
+
+
 
     }
 
