@@ -109,12 +109,33 @@
             });
         });
 	</script>
+
 	<!--endlibrary-->
 
 </head>
 <body>
 <!----start-container---->
 <!----start-header---->
+
+<div style="height:text-align:right:"><span style="position:absolute;right:15px;top:10px; ">
+	@foreach (Config::get('languages') as $lang => $language)
+		@if ($lang != App::getLocale())
+			@php
+				switch($lang){
+                    case  'en' :  echo ' <a href="'.route('lang.switch', $lang).'"><img width="25px" src="image/icon/en.png"/></a>';
+                                  break;
+                    case  'ru':    echo ' <a href="'.route('lang.switch', $lang).'"><img width="25px" src="image/icon/ru.png"/></a>';
+                                  break;
+                    case  'az':    echo ' <a href="'.route('lang.switch', $lang).'"><img width="25px" src="image/icon/az.png"/></a>';
+                                  break;
+                  }
+			@endphp
+
+		@endif
+	@endforeach
+</div>
+
+
 <li class="dropdown">
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		{{ Config::get('languages')[ App::getLocale()] }}
@@ -671,10 +692,7 @@
 		<br>
 		<div class="portfolio-pagination">
 			<ul class="pagination">
-
-
-
-
+				{{$projects->render()}}
 			</ul>
 		</div>
 		<br>
@@ -719,9 +737,7 @@
 		<br>
 		<div class="portfolio-pagination">
 			<ul class="pagination">
-
-
-
+             {{$projects->render()}}
 			</ul>
 		</div>
 		<br>
@@ -753,12 +769,15 @@
 				<i class="fa fa fa-instagram fa-2x"></i></a>
 			<a class="social" href="https://www.youtube.com/channel/UCTPEmIERJjc9_QnjtNUjRdg" target="_blank">
 				<i class="fa fa-youtube-square fa-2x"></i></a>
-			<form>
-				<input type="text" value="@lang('words.name')" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-				<input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'info@activemoms.club';}">
-				<textarea onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;'">@lang('words.letter') *</textarea>
-				<span class="submit-btn"><input type="submit" value="@lang('words.send')"></span>
+
+			<form id="main-contact-form" name="contact-form" method="post" action="{{URL::to('/contact')}}" >
+				<input type="hidden" name="_token" value="{{csrf_token()}}">
+				<input type="text" value="@lang('words.name')" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" name="name" id="name">
+				<input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'info@activemoms.club';}" name="email" id="email">
+				<textarea name="text" id="text" onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;'">@lang('words.letter') *</textarea>
+				<span class="submit-btn"><input type="submit"  value="@lang('words.send')"></span>
 			</form>
+
 		</div>
 		<div class="col-md-6 contact-right">
 			<span class="pin-map"> </span>

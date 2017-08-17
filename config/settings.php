@@ -22,7 +22,7 @@ return [
     'library_base_path'=>"images/library/",
     'blog_base_path'=>"images/blog/",
     'project_base_path'=>"images/project/",
-
+    'momscan_base_path'=>"images/momscan/",
 
     //'store_cover_base_path' => "public/", addition for local testing
     //'store_profile_base_path' => "public/", addition for local testing

@@ -16,8 +16,9 @@ Route::get('/','PageController@index');
 Route::get('/403', function () {
     return view('errors.403');});
 Route::get('/stories', 'PageController@getStories');
+Route::post('/contact', 'PageController@sendEmail');
 Route::get('/momsblog','PageController@getMomsBlog');
-Route::get('/momscan',function (){return view('momscan');});
+Route::get('/momscan','PageController@getMomsCan');
 Route::get('/album/{id}', 'PageController@getImages');
     Route::group(['prefix' => 'adminpanel'], function () {
     Route::get('/', 'AdminController@index');
@@ -29,6 +30,7 @@ Route::get('/album/{id}', 'PageController@getImages');
     Route::resource('blog','BlogController');
     Route::resource('library','LibraryController');
     Route::resource('project','ProjectController');
+    Route::resource('momscan','MomsCanController');
     Route::resource('team','TeamController');
     Route::resource('massmedia','MassmediaController');
     Route::resource('galery', 'GalleryController');

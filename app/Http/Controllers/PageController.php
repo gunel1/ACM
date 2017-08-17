@@ -11,11 +11,13 @@ use App\History;
 use App\Image;
 use App\Library;
 use App\Massmedia;
+use App\MomCan;
 use App\Project;
 use App\Story;
 use App\Team;
 use App\Video;
 use Illuminate\Http\Request;
+use Mail;
 
 class PageController extends Controller
 {
@@ -27,7 +29,7 @@ class PageController extends Controller
        $experts=Expert::paginate(5);
        $teams=Team::get();
        $massmedia=Massmedia::paginate(12);
-       $projects=Project::get();
+       $projects=Project::paginate(5);
        $events=Event::get();
        $library=Library::get();
        $history=History::first();
@@ -49,11 +51,35 @@ class PageController extends Controller
         return view('momsblog')->withblogs($blogs);
 
     }
+    public function getMomsCan()
+    {
+        $momscan = MomCan::all();
+        return view('momscan')->withmomscan($momscan);
+
+    }
    public function getImages($id){
 
        $galery=Gallery::find($id);
        $images=Image::where('parent_id',$galery->image->id)->get();
        return view('album')->withimages($images)->withgalery($galery);
    }
+
+    public function sendEmail(Request $request)
+    {
+
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->message = $request->text;
+        $contact->save();
+
+        Mail::raw($request->input('message'), function ($message) {
+
+            $message->to('rose.red.gunel@gmail.com', 'Online Education')->subject('SIKAYET&TEKLIFLER');
+            $message->from($_POST['email'], $_POST['name']);
+
+        });
+
+    }
 
 }
