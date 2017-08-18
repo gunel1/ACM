@@ -70,8 +70,7 @@ jQuery(function($) {'use strict';
         event.preventDefault();
         var form_status = $('<div class="form_status"></div>');
         var token = $('input[name=_token]').val();
-        $.ajax({
-            dataType: 'json',
+     $.ajax({
             type: "POST",
             url: $(this).attr('action'),
             data: {_token: token, text: $('#text').val() , name:$('#name').val(), email: $('#email').val()},

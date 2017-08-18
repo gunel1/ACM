@@ -25,6 +25,26 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $("#checkAll").change(function () {
+                $("input:checkbox").prop('checked', $(this).prop("checked"));
+            });
+        });
+
+    </script>
+
 </head>
 
 <body>
@@ -185,7 +205,13 @@
 
                 </li>
 
+                <li class="sub-menu">
+                    <a href="{{URL::to('adminpanel/contact')}}" >
+                        <i class="fa fa-magic"></i>
+                        <span>@lang('words.contact')</span>
+                    </a>
 
+                </li>
 
             </ul>
             <!-- sidebar menu end-->

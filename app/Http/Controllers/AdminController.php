@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,4 +54,25 @@ class AdminController extends Controller
         $user->save();
         return redirect()->action('AdminController@getUserInfo');
     }
+    public function getContact(){
+        $contacts=Contact::paginate(20);
+        return view('admin.contact.index')->withcontacts($contacts);
+    }
+
+    public function destroy(Request $request) {
+        Contact::destroy($request->checkbox);
+
+      return redirect()->action('AdminController@getContact');
+    }
 }
+
+
+//public function deleteContact(Request $request) {
+//    $checked = Request::input('checked',[]);
+//
+//    foreach ($checked as $id) {
+//        error_log('udddddddddddddddddd'.$id);
+//        echo 'idddddddd'.$id;
+//        Contact::where("id",$id)->delete();
+//
+//    }

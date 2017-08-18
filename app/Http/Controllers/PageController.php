@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Achievement;
 use App\Blog;
+use App\Contact;
 use App\Event;
 use App\Expert;
 use App\Gallery;
@@ -73,9 +74,9 @@ class PageController extends Controller
         $contact->message = $request->text;
         $contact->save();
 
-        Mail::raw($request->input('message'), function ($message) {
+      Mail::raw($request->input('text'), function ($message) {
 
-            $message->to('rose.red.gunel@gmail.com', 'Online Education')->subject('SIKAYET&TEKLIFLER');
+            $message->to('gunelibrahimkalilova@gmail.com', 'AMC')->subject('SIKAYET&TEKLIFLER');
             $message->from($_POST['email'], $_POST['name']);
 
         });
