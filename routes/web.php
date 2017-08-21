@@ -34,7 +34,7 @@ Route::get('/album/{id}', 'PageController@getImages');
     Route::resource('team','TeamController');
     Route::resource('massmedia','MassmediaController');
     Route::get('contact', 'AdminController@getContact');
-    Route::delete('contacts', ['as'=>'contacts.destroy', 'uses'=>'AdminController@destroy']);
+    Route::delete('contact/delete', 'AdminController@deleteAll');
     Route::resource('galery', 'GalleryController');
     Route::delete('galery/image/{id}', 'GalleryController@deleteImage');
     Route::post('galery/image', 'GalleryController@storeImage');

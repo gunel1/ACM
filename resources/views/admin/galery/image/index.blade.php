@@ -44,10 +44,10 @@
 
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-
+                                            <a href="#"   style="font-size: 20px;color: orange;">
                                                 @if(isset($image->path))
 
-                                                    <img src="{{$image->getImageUrlAttribute()}}" alt="text" >  @endif
+                                                    <img src="{{$image->getImageUrlAttribute()}}" alt="text" >  @endif</a>
 
                                     </div>
 

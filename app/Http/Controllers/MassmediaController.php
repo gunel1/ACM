@@ -51,8 +51,7 @@ class MassmediaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request, [
+    {  $this->validate($request,[
             'title_ru' => 'required',
             'link' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
@@ -67,11 +66,8 @@ class MassmediaController extends Controller
                 $media->image->extension = $request->image->extension();
                 $media->image->file_size = filesize($request->image);
                 $media->image->path = date("Y-m-d") . '/' . $filename;
-                $media->image->save();
-            }
-        }
-        else {
-            $this->validate($request, ['image' => 'required']);
+                $media->image->save();}}
+        else {     $this->validate($request, ['image' => 'required']);
             $media = new Massmedia();
             if (isset($request->image)) {
                 $dir = config('settings.massmedia_base_path') . date("Y-m-d");

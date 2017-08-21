@@ -12,6 +12,8 @@ use App\Contact;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
 
 class AdminController extends Controller
 {
@@ -59,20 +61,20 @@ class AdminController extends Controller
         return view('admin.contact.index')->withcontacts($contacts);
     }
 
-    public function destroy(Request $request) {
-        Contact::destroy($request->checkbox);
 
-      return redirect()->action('AdminController@getContact');
+
+/**
+ * Show the application dashboard.
+ *
+ * @return \Illuminate\Http\Response
+ */
+public function deleteAll(Request $request)
+{
+    $checked = $request->checked;
+
+    foreach ($checked as $id) {
+        Contact::where("id",$id)->delete();
     }
+    return redirect(URL::to("/adminpanel/contact"));
 }
-
-
-//public function deleteContact(Request $request) {
-//    $checked = Request::input('checked',[]);
-//
-//    foreach ($checked as $id) {
-//        error_log('udddddddddddddddddd'.$id);
-//        echo 'idddddddd'.$id;
-//        Contact::where("id",$id)->delete();
-//
-//    }
+}
