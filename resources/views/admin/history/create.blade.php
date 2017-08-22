@@ -35,21 +35,21 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title en
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('title_en')}}"  name="title_en" type="text">
                                     </div>
                                 </div>
                                 <div class="item form-group" >
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">sub Title en
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="subtitle_en" type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('subtitle_en')}}"  name="subtitle_en" type="text">
                                     </div>
                                 </div>
                                 <div class="item form-group" >
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> text en
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea id="title" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text"></textarea>
+                                        <textarea id="title" class="form-control col-md-7 col-xs-12"value="{{ old('text_en')}}"   name="text_en"  type="text"></textarea>
                                     </div>
                                 </div>
                                 <hr>
@@ -58,21 +58,21 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title ru<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru"  type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12"  value="{{ old('title_ru')}}" name="title_ru"  type="text">
                                     </div>
                                 </div>
                                 <div class="item form-group" >
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">sub Title ru<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="subtitle_ru"  type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12"  value="{{ old('subtitle_ru')}}" name="subtitle_ru"  type="text">
                                     </div>
                                 </div>
                                 <div class="item form-group" >
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> text ru<span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea id="title" class="form-control col-md-7 col-xs-12"  name="text_ru"  type="text"></textarea>
+                                        <textarea id="title" class="form-control col-md-7 col-xs-12" value="{{ old('text_ru')}}"  name="text_ru"  type="text"></textarea>
                                     </div>
                                 </div>
                                 <hr>
@@ -82,21 +82,21 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title az
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="title_az" type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12"  value="{{ old('title_az')}}" name="title_az" type="text">
                                     </div>
                                 </div>
                                 <div class="item form-group" >
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">sub Title az
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="subtitle_az" type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('subtitle_az')}}"  name="subtitle_az" type="text">
                                     </div>
                                 </div>
                                 <div class="item form-group" >
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> text az
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea id="title" class="form-control col-md-7 col-xs-12"  name="text_az"  type="text"></textarea>
+                                        <textarea id="title" class="form-control col-md-7 col-xs-12" value="{{ old('text_az')}}"  name="text_az"  type="text"></textarea>
 
                                     </div>
                                 </div>

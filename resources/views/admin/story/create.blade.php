@@ -27,7 +27,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> title
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"  value="{{ old('title_en')}}" name="title_en" type="text">
                                 </div>
                             </div>
 
@@ -36,7 +36,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> subtitle
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="subtitle_en"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12" value="{{ old('subtitle_en')}}"  name="subtitle_en"  type="text">
                                 </div>
                             </div>
 
@@ -44,7 +44,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"value="{{ old('text_en')}}"   name="text_en"  type="text">
                                 </div>
                             </div>
 
@@ -54,7 +54,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> title
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('title_ru')}}"  name="title_ru" type="text">
                                 </div>
                             </div>
 
@@ -63,7 +63,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> subtitle
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="subtitle_ru"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12" value="{{ old('subtitle_ru')}}"  name="subtitle_ru"  type="text">
                                 </div>
                             </div>
 
@@ -71,7 +71,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_ru"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12" value="{{ old('text_ru')}}"  name="text_ru"  type="text">
                                 </div>
                             </div>
      <hr>
@@ -80,7 +80,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> title
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_az" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"value="{{ old('title_az')}}"   name="title_az" type="text">
                                 </div>
                             </div>
 
@@ -89,7 +89,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> subtitle
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="subtitle_az"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12" value="{{ old('subtitle_az')}}"  name="subtitle_az"  type="text">
                                 </div>
                             </div>
 
@@ -97,12 +97,12 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_az"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"  value="{{ old('text_az')}}" name="text_az"  type="text">
                                 </div>
                             </div>
 
                             <div class="item form-group" >
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> link
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"value="{{ old('link')}}"  for="text"> link
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="text" class="form-control col-md-7 col-xs-12"  name="link"  type="text">

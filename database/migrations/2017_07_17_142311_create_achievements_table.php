@@ -22,9 +22,9 @@ class CreateAchievementsTable extends Migration
             $table->string('subtitle_en')->nullable();
             $table->string('subtitle_ru')->nullable();
 
-            $table->string('text_en')->nullable();
-            $table->string('text_ru')->nullable();
-            $table->string('text_az')->nullable();
+            $table->text('text_en')->nullable();
+            $table->text('text_ru')->nullable();
+            $table->text('text_az')->nullable();
 
             $table->timestamps();
         });

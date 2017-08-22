@@ -27,7 +27,7 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> link
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input id="title" class="form-control col-md-7 col-xs-12"  name="link" type="text">
+                                        <input id="title" class="form-control col-md-7 col-xs-12"  value="{{ old('link')}}"  name="link" type="text">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-md-offset-3">

@@ -29,11 +29,11 @@ class GalleryController extends Controller
         if(isset($request->searchtext)) {
             $searchtext = strtolower($request->searchtext);
             if (App::getLocale() == 'en')
-            $galery= Gallery::where(DB::raw('LOWER(title_en)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+            $galery= Gallery::where(DB::raw('LOWER(title_en)'), 'LIKE', "%".$searchtext."%")->paginate(12);
             if (App::getLocale() == 'ru')
-                $galery= Gallery::where(DB::raw('LOWER(title_ru)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+                $galery= Gallery::where(DB::raw('LOWER(title_ru)'), 'LIKE', "%".$searchtext."%")->paginate(12);
             if (App::getLocale() == 'az')
-                $galery= Gallery::where(DB::raw('LOWER(title_az)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+                $galery= Gallery::where(DB::raw('LOWER(title_az)'), 'LIKE', "%".$searchtext."%")->paginate(12);
         }
         else
             $galery = Gallery::paginate(3);
@@ -59,7 +59,7 @@ class GalleryController extends Controller
         $this->validate($request, [
             'title_ru' => 'required',
             'text_ru'=>'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
         if(isset($request->galery_id)) {
 
             $galery = Gallery::find($request->galery_id);
@@ -118,22 +118,10 @@ class GalleryController extends Controller
         $galery = Gallery::where('id', $id)->first();
         return view('admin.galery.edit',array('galery'=>$galery));
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function  show($id){
 
         $galery=Gallery::find($id);
-        $images=Image::where('parent_id',$galery->image->id)->paginate(3);
+        $images=Image::where('parent_id',$galery->image->id)->paginate(12);
 
         return view('admin.galery.image.index',array('images'=>$images,'parent_id'=>$galery->image->id ,'galery_id'=>$id));
     }
@@ -150,13 +138,10 @@ class GalleryController extends Controller
         //files and images of store should be deleted
         return redirect()->action('GalleryController@index');
     }
-
-
 public function storeImage(Request $request)
 {
-
     $this->validate($request, [ 'images' => 'required',
-        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
 
 
        $dir =  config('settings.galery_base_path') . date("Y-m-d");
@@ -171,16 +156,16 @@ public function storeImage(Request $request)
         $img->path = date("Y-m-d").'/'.$filename;
         $img->parent_id=$request->parent_id;
         $img->save();
-
         }
-
          return redirect(URL::to("/adminpanel/galery/$request->galery_id"));
 }
-public function deleteImage($id,Request $request)
+public function deleteImage(Request $request)
 {
+    $checked = $request->checked;
 
-   $image=Image::find($id);
-   $image->delete();
+    foreach ($checked as $id) {
+        Image::where("id", $id)->delete();
+    }
     return redirect(URL::to("/adminpanel/galery/$request->galery_id"));
 
 }

@@ -54,7 +54,7 @@ class MassmediaController extends Controller
     {  $this->validate($request,[
             'title_ru' => 'required',
             'link' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
         if (isset($request->id)){
             $media = Massmedia::find($request->id);
             if (isset($request->image)) {

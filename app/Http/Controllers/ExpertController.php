@@ -56,7 +56,7 @@ class ExpertController extends Controller
         $this->validate($request, [
             'name_ru' => 'required',
             'profession_ru' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
         if (isset($request->id)){
             $expert = Expert::find($request->id);
             if (isset($request->image)) {

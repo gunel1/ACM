@@ -8,8 +8,6 @@
                     <div  class="panel-heading" style="margin-right: 2%; margin-left: 0%;">
                         <form action="{{ URL::to('adminpanel/contact/delete') }}" method="post">
                             <p><label><input type="checkbox" id="checkAll"/> Check all</label></p>
-
-
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="delete">
 
@@ -49,3 +47,4 @@
             }}
     </script>
 @endsection
+

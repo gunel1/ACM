@@ -2,8 +2,6 @@
 @section('content')
 
     <section id="main-content">
-        <section class="wrapper">
-
         <div class="container" style="height: 100%;width: 100%;">
             <div class="" >
                 <div class="item  " style="margin-top: 1%; box-shadow: 1px 1px 1px black;">
@@ -27,7 +25,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_en" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('title_en')}}"  name="title_en" type="text">
                                 </div>
                             </div>
 
@@ -36,7 +34,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"value="{{ old('text_en')}}"   name="text_en"  type="text">
                                 </div>
                             </div>
  <hr>
@@ -45,7 +43,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_ru"> Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_ru" required="required" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('title_ru')}}"  name="title_ru" required="required" type="text">
                                 </div>
                             </div>
 
@@ -54,7 +52,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_ru" required="required" type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"value="{{ old('text_ru')}}"   name="text_ru" required="required" type="text">
                                 </div>
                             </div>
 
@@ -64,7 +62,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Title
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="title_az" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12" value="{{ old('title_az')}}"  name="title_az" type="text">
                                 </div>
                             </div>
 
@@ -73,7 +71,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="text_az" type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12" value="{{ old('text_az')}}"  name="text_az" type="text">
                                 </div>
                             </div>
 
@@ -83,6 +81,7 @@
                                 <div class="col-md-6 col-md-offset-3">
 
                                     <input type="file" name="image"  class="btn btn-file"  accept="image/*">
+
                                     <br>
                                     <br>
                                     <button type="button" class="btn btn-primary" onclick="redirect()">Cancel</button>
@@ -90,6 +89,7 @@
                                 </div>
                             </div>
                         </form>
+
                         <!-- /page content -->
                     </div>
                 </div>
@@ -102,7 +102,6 @@
                 window.location="{{URL::to('/adminpanel/galery')}}";
             }
         </script>
-
     </section>
     </section>
 @endsection

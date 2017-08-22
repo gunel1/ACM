@@ -58,7 +58,7 @@ class StoryController extends Controller
             'subtitle_ru' => 'required',
             'text_ru'=>'required',
             'link'=>'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
         if (isset($request->id)){
             $story = Story::find($request->id);
             if (isset($request->image)) {

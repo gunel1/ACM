@@ -67,45 +67,50 @@
 
 <br><br>
                         @foreach($videos as $video)
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper smth" style="box-shadow: 1px 2px 2px gray; height: 340px; width: 200px; margin-left: 10%;">
 
-                            <div class="col-sm-3">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <a href="#" style="font-size: 20px;color: orange;">
+                                                            <iframe width="260" src="{{$video->link}}" frameborder="0" style="box-shadow: 0px 2px 4px 0px gray; width: 100%; height: 200px;" allowfullscreen></iframe>
+                                                        <br>  <span>{{$video->title_ru}}</span></a><p><i> {{$video->title_en}}</i></p><p><i> {{$video->title_az}}</i></p>
 
-                                        <div class="videoWrapper">
-                                            <iframe width="260" src="{{$video->link}}" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                            </div>
+                                            </a>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-md-6">
+                                                    <form action="{{ URL::to('/adminpanel/video/'.$video->id) }}" method="POST">
+                                                        <input name="_token" type="hidden" value="{{csrf_token()}} " >
+                                                        <input name="_method" type="hidden" value="DELETE" >
+                                                        <button type = "button" onclick="showAlarm(this)" class="btn btn-danger" value="Delete" style="margin-left: 15%;background-color: #f48064;border:0;">Delete</button>
+                                                    </form>
+                                                </div>
+                                                <div class="col-xs-12 col-md-6">
+
+                                                    <a href="{{ URL::to('/adminpanel/video/edit/'.$video->id) }}" class="btn btn-danger" style="background-color: #5fbe28; border: 0;"><i class="fa fa-pencil-square-o"> </i> Edit</a>
+                                                </div>
+
+
+                                            </div>
                                         </div>
-                                <p >{{$video->title_ru}}</p>
-                                <p >{{$video->title_en}}</p>
-                                <p >{{$video->title_az}}</p>
-
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-6">
-                                            <form action="{{ URL::to('/adminpanel/video/'.$video->id) }}" method="POST">
-                                                <input name="_token" type="hidden" value="{{csrf_token()}} " >
-                                                <input name="_method" type="hidden" value="DELETE" >
-                                                <button type = "button" onclick="showAlarm(this)" class="btn btn-danger" value="Delete" style="margin-left: 15%;background-color: #f48064;border:0;">Delete</button>
-                                            </form>
-                                        </div>
-                                        <div class="col-xs-12 col-md-6">
-                                            <a href="{{ URL::to('/adminpanel/video/edit/'.$video->id) }}" class="btn btn-danger" style="background-color: #5fbe28; border: 0;"><i class="fa fa-pencil-square-o"> </i> Edit</a>
-                                        </div>
-
-
 
                                     </div>
-                            </div>
+
                         @endforeach
 
 
                 </div>
-
-
+                    </div>
+                </div>
                     <div class="container">
                         {{$videos->render()}}
                     </div>
-                </div>
-            </div>
-        </div>
 
+
+        </div>
+        </div>
     </section>
 
     </section>
