@@ -15,8 +15,11 @@ class CreateMassmediaTable extends Migration
     {
         Schema::create('massmedia', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
+            $table->string('title_en')->nullable();
+            $table->string('title_ru')->nullable();
+            $table->string('title_az')->nullable();
             $table->string('link');
+            $table->integer('image_id');
             $table->timestamps();
         });
     }

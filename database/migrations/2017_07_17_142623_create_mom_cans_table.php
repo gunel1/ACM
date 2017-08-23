@@ -15,9 +15,15 @@ class CreateMomCansTable extends Migration
     {
         Schema::create('mom_cans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('title');
-            $table->string('text');
+            $table->string('name_en')->nullable();
+            $table->string('name_ru')->nullable();
+            $table->string('name_az')->nullable();
+            $table->string('title_en')->nullable();
+            $table->string('title_ru')->nullable();
+            $table->string('title_az')->nullable();
+            $table->text('text_en')->nullable();
+            $table->text('text_ru')->nullable();
+            $table->text('text_az')->nullable();
             $table->integer('image_id');
 
             $table->timestamps();

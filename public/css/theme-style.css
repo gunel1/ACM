@@ -261,8 +261,8 @@ nav a#pull {
 }
 /*---- start-work----*/
 .work{
-	background: #4F4F57;
-	padding: 5em 0;
+	background-color: grey; 
+	padding: 5em;
 }
 .work-head h3,.work-head p{
 	color:#FFF;
@@ -1789,7 +1789,7 @@ div.gal img {
 }
 
 .pagination li:last-child a{
-  background: url(/image/portfolio/right.png);
+  background: url(/image/img/portfolio/right.png);
   background-repeat: no-repeat;
   text-indent: -999999999px;
   background-position: center top 10px;
@@ -2127,5 +2127,15 @@ Portfolio Details
 //endpagination
 
 ///video
-
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.videoWrapper iframe {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 ///endvideo

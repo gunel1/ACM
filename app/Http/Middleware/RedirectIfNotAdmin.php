@@ -21,11 +21,9 @@ class RedirectIfNotAdmin
      * @param  \Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
-    {
+    public function handle($request, Closure $next){
         if (!Auth::check()) {
-            return redirect('/403');
-        }
+            return view('errors.403');}
         return $next($request);
     }
 }

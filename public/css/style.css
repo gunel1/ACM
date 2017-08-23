@@ -62,7 +62,7 @@
 	width:16px;
 	height:16px;
 	margin-right:3px;
-	background:#464646 url(/images/views.png) no-repeat top left;
+	background:#464646 url(../images/views.png) no-repeat top left;
 	border:3px solid #464646;
 	opacity:0.8;
 }
@@ -85,7 +85,7 @@
 	position:absolute;
 	top:50%;
 	left:50%;
-	background:#000 url(/images/ajax-loader.gif) no-repeat center center;
+	background:#000 url(../images/ajax-loader.gif) no-repeat center center;
 	margin:-23px 0px 0px -23px;
 	z-index:100;
 	-moz-border-radius: 10px;

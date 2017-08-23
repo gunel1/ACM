@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use App\Image;
+use App\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 
@@ -23,9 +25,15 @@ class GalleryController extends Controller
      */
     public function index(Request $request)
     {
+
         if(isset($request->searchtext)) {
             $searchtext = strtolower($request->searchtext);
-            $galery= Gallery::where(DB::raw('LOWER(title)'), 'LIKE', "%".$searchtext."%")->paginate(3);
+            if (App::getLocale() == 'en')
+            $galery= Gallery::where(DB::raw('LOWER(title_en)'), 'LIKE', "%".$searchtext."%")->paginate(12);
+            if (App::getLocale() == 'ru')
+                $galery= Gallery::where(DB::raw('LOWER(title_ru)'), 'LIKE', "%".$searchtext."%")->paginate(12);
+            if (App::getLocale() == 'az')
+                $galery= Gallery::where(DB::raw('LOWER(title_az)'), 'LIKE', "%".$searchtext."%")->paginate(12);
         }
         else
             $galery = Gallery::paginate(3);
@@ -49,12 +57,14 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'text'=>'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
+            'title_ru' => 'required',
+            'text_ru'=>'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
         if(isset($request->galery_id)) {
+
             $galery = Gallery::find($request->galery_id);
             if(isset($request->image)){
+
                 $galery->deleteImageFromFolder();
 
                 $dir = config('settings.galery_base_path') . date("Y-m-d");
@@ -67,7 +77,9 @@ class GalleryController extends Controller
                 $galery->image->save();
             }
         }
-        else { $galery = new Gallery();
+        else {
+            $this->validate($request, ['image'=>'required']);
+            $galery = new Gallery();
         if(isset($request->image)){
             $dir = config('settings.galery_base_path') . date("Y-m-d");
             $image = new Image();
@@ -77,12 +89,20 @@ class GalleryController extends Controller
             $image->extension = $request->image->extension();
             $image->file_size = filesize($request->image);
             $image->path = date("Y-m-d").'/'.$filename;
+
             $image->save();
+
             $galery->image_id=$image->id;
         }}
-// save image to database
-        $galery->title = $request->title;
-        $galery->text = $request->text;
+
+
+                $galery->title_en = $request->title_en;
+                $galery->text_en= $request->text_en;
+                $galery->title_ru= $request->title_ru;
+                $galery->text_ru = $request->text_ru;
+                $galery->title_az= $request->title_az;
+                $galery->text_az= $request->text_az;
+
         $galery->save();
         return redirect()->action('GalleryController@index');
     }
@@ -98,26 +118,10 @@ class GalleryController extends Controller
         $galery = Gallery::where('id', $id)->first();
         return view('admin.galery.edit',array('galery'=>$galery));
     }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
     public function  show($id){
 
         $galery=Gallery::find($id);
-
-        $images=Image::where('parent_id',$galery->image->id)->paginate(3);
-
-//            DB::table('images')
-//            ->where('parent_id',$galery->image->id)->get();
+        $images=Image::where('parent_id',$galery->image->id)->paginate(12);
 
         return view('admin.galery.image.index',array('images'=>$images,'parent_id'=>$galery->image->id ,'galery_id'=>$id));
     }
@@ -134,32 +138,80 @@ class GalleryController extends Controller
         //files and images of store should be deleted
         return redirect()->action('GalleryController@index');
     }
-
-
 public function storeImage(Request $request)
 {
+    $this->validate($request, [ 'images' => 'required',
+        'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
 
-    $this->validate($request, ['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048']);
 
-        $dir =  config('settings.base_url') . config('settings.galery_base_path') . date("Y-m-d");
-        $image = new Image();
-        $path = $request->file('image')->store($dir);
+       $dir =  config('settings.galery_base_path') . date("Y-m-d");
+        $images=$request->file('images');
+     foreach ($images as $image) {
+        $img = new Image();
+        $path = $image->store($dir);
         $filename = substr($path,strlen($dir) + 1);
-        $image->file_name = $filename;
-        $image->extension = $request->image->extension();
-        $image->file_size = filesize($request->image);
-        $image->path = date("Y-m-d").'/'.$filename;
-        $image->parent_id=$request->parent_id;
-        $image->save();
-
+        $img->file_name = $filename;
+        $img->extension = $image->extension();
+        $img->file_size = filesize($image);
+        $img->path = date("Y-m-d").'/'.$filename;
+        $img->parent_id=$request->parent_id;
+        $img->save();
+        }
          return redirect(URL::to("/adminpanel/galery/$request->galery_id"));
 }
-public function deleteImage($id,Request $request)
+public function deleteImage(Request $request)
 {
+    $checked = $request->checked;
 
-   $image=Image::find($id);
-   $image->delete();
+    foreach ($checked as $id) {
+        Image::where("id", $id)->delete();
+    }
     return redirect(URL::to("/adminpanel/galery/$request->galery_id"));
 
 }
+    public function createVideo($id)
+    {
+        $video=Video::find($id);
+        return view('admin.galery.video.edit')->withvideo($video);
+    }
+
+
+    public function storeVideo(Request $request)
+    {
+
+        $this->validate($request, [
+            'title_ru' => 'required',
+            'link'=>'required']);
+        if(isset($request->video_id)) $video=Video::find($request->video_id);
+        else $video=new Video();
+
+        $link=$request->link;
+        $youtubelink="https://www.youtube.com/embed/".substr($link,  strpos($link, '=')+1);
+
+        $video->title_en = $request->title_en;
+
+        $video->title_ru= $request->title_ru;
+
+        $video->title_az= $request->title_az;
+        $video->link=$youtubelink;
+        $video->save();
+
+
+        return redirect(URL::to("/adminpanel/video"));
+    }
+    public function deleteVideo($id)
+    {
+
+        $video=Video::find($id);
+        $video->delete();
+        return redirect(URL::to("/adminpanel/video"));
+
+    }
+    public function showVideo()
+    {
+            $videos = Video::paginate(12);
+        return view('admin.galery.video.index')->with(array('videos'=>$videos));
+    }
+
+
 }

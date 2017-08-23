@@ -16,9 +16,6 @@ class ForeignKeys extends Migration
         Schema::table('galleries', function (Blueprint $table) {
             $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
         });
-        Schema::table('achievements', function (Blueprint $table) {
-            $table->foreign('image_id')->references('id')->on('images');
-        });
         Schema::table('experts', function (Blueprint $table) {
             $table->foreign('image_id')->references('id')->on('images');
         });
@@ -46,7 +43,9 @@ class ForeignKeys extends Migration
         Schema::table('images', function (Blueprint $table) {
             $table->foreign('parent_id')->references('id')->on('images')->onDelete('cascade');
         });
-
+        Schema::table('massmedia', function (Blueprint $table) {
+            $table->foreign('image_id')->references('id')->on('images');
+        });
     }
 
     /**

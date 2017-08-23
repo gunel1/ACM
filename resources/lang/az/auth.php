@@ -14,6 +14,6 @@ return [
     */
 
     'failed' => 'Bazada bu cur hesab yoxdur.',
-    'throttle' => 'Too many login attempts. Zehmet olmasa biraz sonra cehd edin :seconds seconds.',
+    'throttle' => 'Zehmet olmasa  :seconds saniye sonra cehd edin.',
 
 ];

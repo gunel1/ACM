@@ -114,9 +114,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!----start-top-nav---->
 				<nav class="top-nav">
 					<ul class="top-nav">
-						<li class="active" class="page-scroll"><a href="#test" class="scroll">Блог Мам</a></li>
-						<li class="page-scroll"><a href="{{URL::to('/')}}">Назад</a></li>
-						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Конец</a></li>
+						<li class="active" class="page-scroll"><a href="#test" class="scroll">@lang('words.blogmum')</a></li>
+						<li class="page-scroll"><a href="{{URL::to('/')}}">@lang('words.back')</a></li>
+						<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">@lang('words.end')</a></li>
 					</ul>
 					<a href="#" id="pull"><i class="fa fa-bars fa-2x" style="color: #FD3B01; margin: 0.6em 0.6em"></i></a>
 				</nav>
@@ -132,7 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div  id="test" class="testmonials">
 			<div class="container">
 				<div class="head text-center">
-					<h3><span> </span> Блог Мам</h3>
+					<h3><span> </span> @lang('words.blogmum')</h3>
 				</div>
 			</div>
 		</div>
@@ -141,22 +141,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<section id="two">
 			<div class="inner">
 			<!--1-->
-					<div class="spotlight">
-						<div class="image">
-							<img src="img/moms_blog/rugiyablog.jpg" alt="Rugiya_Afsharli" />
-						</div>
-						<div class="content">
-							<a href="javascript:void(0);">
-							<h3>Ругия Ашрафли</h3>
-							<h4>Журналист, один сын</h4>
-							</a>
-							<div class="more"><p style="font-size: 14px;">Сегодня утром в парке у дома было особенно хорошо. Мы с сыном сидели на бордюрчике, собирали в травке букашек, делали кораблики из листочков и выпускали в лужицу. Вокруг не было ни души. А ведь летом, в жару мамы с детками обычно с 9-10 собираются в парке, а тут мы битый час ходили одни, вокруг собак только выгуливают. Вообще с приходом холодов детей редко выводят гулять. Доводов мне не понять. Но речь сейчас не об этом… <br>
- 							Стали постепенно появляться дедушки и бабушки с внуками, мамы, нянечки и даже папы. Многих знаю, часто вижу. Все проходят мимо нас, оборачиваются, здороваемся. И только дети останавливались, хотят подойти, посмотреть, чем мы там заняты. Абсолютно все одергивали своих детей. А одна мамаша выдала: «туда нельзя, там грязно, и тебя укусит паук». И весь последующий час, что мы были в парке, я слышала примерно следующее: «не садись, не лезь в лужу, не трогай ничего, не бегай, не кричи, к собаке не подходи, кошку нельзя гладить, руками не трогай, не бери чужую машину, у нас дома полно таких, и т.д. и т.п» Нет, я не в первый раз слышу подобное. Все лето, почти каждую утро, я наблюдала картинку – дети играются, а взрослые как коршуны стоят над их головами и слышно только одно «Нет, Нельзя». Знаете, в этот момент меня такое неприятное чувство охватывает, какая-то обида, или может даже гнев. Уйти, не слышать всего этого не получается, сын играется с другими детьми и мне не хочется ему мешать. В итоге я всегда стою в сторонке и просто наблюдаю... <br>
- 							Почему родители, такие современные, умные, модные, состоятельные не хотят понять одного, что их задача состоит в том, чтобы уберечь ребенка от угрозы здоровью и жизни, установить границы, но позволить свободно двигаться внутри этих границ. Постоянные «не трогай», «не лезь» не дают ребенку развиваться естественно. Иногда нужно давать совершить ошибку, чтобы он мог почувствовать ее последствия, поплакав в любящих объятиях. Ничто не заменит ребенку собственного опыта. Неужели это так сложно осознать и принять? Почему мы взрослые такие недалекие? Извините, наболело.
-							</p></div>
-						</div>
-					</div>				
 
+				@foreach($blogs as $blog)
+					@php
+
+						switch(App::getLocale()){
+
+                            case  'en' :echo '<div class="spotlight"><div class="image"><img src="'.URl::to($blog->getImageUrlAttribute()).
+                            '" alt="'.$blog->name_en.'"/></div><div class="content"><a href="javascript:void(0);"><h3>'.$blog->name_en.'</h3><h4>'.$blog->profession_en.
+                            '</h4></a><div class="more"><p style="font-size: 14px;">'.$blog->text_en.'</p></div></div></div>';
+
+                            break;
+                            case  'ru':echo '<div class="spotlight"><div class="image"><img src="'.URl::to($blog->getImageUrlAttribute()).
+                            '" alt="'.$blog->name_ru.'"/></div><div class="content"><a href="javascript:void(0);"><h3>'.$blog->name_ru.'</h3><h4>'.$blog->profession_ru.
+                            '</h4></a><div class="more"><p style="font-size: 14px;">'.$blog->text_ru.'</p></div></div></div>';
+                            break;
+                            case  'az':echo '<div class="spotlight"><div class="image"><img src="'.URl::to($blog->getImageUrlAttribute()).
+                            '" alt="'.$blog->name_az.'"/></div><div class="content"><a href="javascript:void(0);"><h3>'.$blog->name_az.'</h3><h4>'.$blog->profession_az.
+                            '</h4></a><div class="more"><p style="font-size: 14px;">'.$blog->text_az.'</p></div></div></div>';
+
+                            break;
+
+                            }
+					@endphp
+
+@endforeach
 
 				
 				<!--end-->
