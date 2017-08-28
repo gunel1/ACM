@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>
@@ -118,7 +119,7 @@
 <!----start-container---->
 <!----start-header---->
 
-<div style="height:text-align:right:"><span style="position:absolute;right:15px;top:10px; ">
+<div style="float: left; margin-top: 0.2em;">
 	@foreach (Config::get('languages') as $lang => $language)
 		@if ($lang != App::getLocale())
 			@php
@@ -135,22 +136,6 @@
 		@endif
 	@endforeach
 </div>
-
-
-<li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		{{ Config::get('languages')[ App::getLocale()] }}
-	</a>
-	<ul class="dropdown-menu">
-		@foreach (Config::get('languages') as $lang => $language)
-			@if ($lang != App::getLocale())
-				<li>
-					<a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
-				</li>
-			@endif
-		@endforeach
-	</ul>
-</li>
 
 <div id="home" class="header scroll">
 	<div class="container">
@@ -409,8 +394,9 @@
 <!--End-feartures-->
 <div class="clearfix"></div>
 <!-- start-work-->
-<div style="background: url(image/ad/bannerad.png);" class="work">
-
+<div class="work">
+			<center><embed style=" width: 100%;" src="image/ad/Magma RUS Curves.swf"></embed></center>
+			
 </div>
 <div class="clearfix"></div>
 <br>
@@ -752,13 +738,13 @@
 <!----start-contact---->
 <div id="contact" class="contact">
 	<div class="contact-map">
-		<iframe src="https://maps.google.com/maps?t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=embed&amp;q=United+States&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.359243,-91.525727&amp;spn=0.409036,0.837021&amp;z=11&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=embed&amp;q=United+States&amp;ie=UTF8&amp;hq=&amp;hnear=United+States&amp;ll=37.359243,-91.525727&amp;spn=0.409036,0.837021&amp;z=11&amp;source=embed"> </a></small>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2149.261922191763!2d49.840970975396466!3d40.37526924969375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x86f65ca477f2a0d6!2z0J3QuNC30LDQvNC4!5e0!3m2!1sru!2s!4v1503577366669" width="800" height="600" frameborder="0" style="border:0"></iframe>
 	</div>
 	<div class="contact-grids">
 		<div class="col-md-6 contact-left">
 			<h3><img src="{{URL::to('image/ico/contactss.png')}}"
 					 alt="Contacts Icon" width="40" height="40">@lang('words.contact')</h3>
-			<p><i class="fa fa-map-marker" style="color: #1B242F"> </i> ***</p>
+			<p><i class="fa fa-map-marker" style="color: #1B242F"> </i> Пр.Бюль-Бюля, 20</p>
 			<p><i class="fa fa-phone-square fa-lg" style="color: #1B242F"></i> +994-50-365-45-71</p>
 			</span>
 			<h4>@lang('words.follow')</h4>
@@ -793,7 +779,7 @@
 		<div class="footer-left">
 			<a href="{{URL::to('/')}}"><img src="{{URL::to('image/ico/cover.jpg')}}" title="AMC"
 									  style="width:280px;height:100px;"></a>
-			<p>Template by <a href="https://work-87456800.facebook.com/profile.php?id=100016745117824" target="_blank">Anar Haydarli</a></p>
+			<p>Copyright &copy; 2017 <a href="https://www.facebook.com/Code3reakers/" target="_blank">Code Breakers</a>. All rights reserved.</p>
 		</div>
 
 		<a href="#home" id="toTop" style="display: block;"> <span id="toTopHover"> </span></a>

@@ -113,7 +113,7 @@
 						</div>
 						<a href="index.html"><img src="{{asset('image/ico/cover.jpg')}}" title="AMC"
 							style="width:280px;height:100px;"></a>
-							<p>Template by <a href="https://work-87456800.facebook.com/profile.php?id=100016745117824" target="_blank">Anar Haydarli</a></p>
+							<p>Copyright &copy; 2017 <a href="https://www.facebook.com/Code3reakers/" target="_blank">Code Breakers</a>. All rights reserved.</p>
 						</div>
 						<script type="text/javascript">
 							$(document).ready(function() {

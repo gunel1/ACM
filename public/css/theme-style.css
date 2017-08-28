@@ -261,7 +261,6 @@ nav a#pull {
 }
 /*---- start-work----*/
 .work{
-	background-color: grey; 
 	padding: 5em;
 }
 .work-head h3,.work-head p{
@@ -271,7 +270,6 @@ nav a#pull {
 	width:140px;
 	height:140px;
 	display:inline-block;
-	background:#91919D;
 	border:6px solid #494951;
 	border-radius:30em;
 	-webkit-border-radius:30em;

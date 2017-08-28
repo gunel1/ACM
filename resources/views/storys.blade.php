@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Storys | AMC - Baku</title>
+	<link rel="icon" type="image/png" href="{{asset('image/ico/amclog.png')}}">
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="css/projects.css" />
 
@@ -193,7 +194,7 @@
 										</div>
 										<a href="{{URL::to('/')}}"><img src="{{asset('/image/ico/cover.jpg')}}" title="AMC"
                                                                        style="width:280px;height:100px;"></a>
-											<p>Template by <a href="https://work-87456800.facebook.com/profile.php?id=100016745117824" target="_blank">Anar Haydarli</a></p>
+											<p>Copyright &copy; 2017 <a href="https://www.facebook.com/Code3reakers/" target="_blank">Code Breakers</a>. All rights reserved.</p>
 										</div>
 										<script type="text/javascript">
 											$(document).ready(function() {
