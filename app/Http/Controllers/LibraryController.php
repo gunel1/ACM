@@ -37,7 +37,7 @@ class LibraryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {$this->validate($request, ['image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000',
+    {$this->validate($request, ['image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000',
         'link'=>'required']);
         if (isset($request->id)){
             $library = Library::find($request->id);

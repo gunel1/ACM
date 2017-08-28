@@ -57,7 +57,7 @@ class ProjectController extends Controller
             'title_ru' => 'required',
             'text_ru' => 'required',
             'link'=>'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4000']);
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:20000']);
         if (isset($request->id)){
             $project = Project::find($request->id);
             if (isset($request->image)) {

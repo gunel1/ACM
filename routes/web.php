@@ -1,20 +1,7 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 Route::group(['middleware' => ['web']], function () {
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 Route::get('/','PageController@index');
-Route::get('/403', function () {
-    return view('errors.403');});
 Route::get('/stories', 'PageController@getStories');
 Route::post('/contact', 'PageController@sendEmail');
 Route::get('/momsblog','PageController@getMomsBlog');
@@ -34,9 +21,9 @@ Route::get('/album/{id}', 'PageController@getImages');
     Route::resource('team','TeamController');
     Route::resource('massmedia','MassmediaController');
     Route::get('contact', 'AdminController@getContact');
-    Route::delete('contacts', ['as'=>'contacts.destroy', 'uses'=>'AdminController@destroy']);
+    Route::delete('contact/delete', 'AdminController@deleteAll');
     Route::resource('galery', 'GalleryController');
-    Route::delete('galery/image/{id}', 'GalleryController@deleteImage');
+    Route::delete('galery/image', 'GalleryController@deleteImage');
     Route::post('galery/image', 'GalleryController@storeImage');
     Route::delete('video/{id}', 'GalleryController@deleteVideo');
     Route::get('video', 'GalleryController@showVideo');

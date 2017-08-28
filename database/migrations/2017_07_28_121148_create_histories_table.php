@@ -15,9 +15,9 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text_en');
-            $table->string('text_ru');
-            $table->string('text_az');
+            $table->text('text_en');
+            $table->text('text_ru');
+            $table->text('text_az');
             $table->string('title_en');
             $table->string('title_ru');
             $table->string('title_az');

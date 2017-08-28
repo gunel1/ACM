@@ -21,9 +21,9 @@ class CreateStoriesTable extends Migration
             $table->string('subtitle_en')->nullable();
             $table->string('subtitle_ru')->nullable();
             $table->string('subtitle_az')->nullable();
-            $table->string('text_en')->nullable();
-            $table->string('text_ru')->nullable();
-            $table->string('text_az')->nullable();
+            $table->text('text_en')->nullable();
+            $table->text('text_ru')->nullable();
+            $table->text('text_az')->nullable();
             $table->string('link');
             $table->integer('image_id');
             $table->timestamps();

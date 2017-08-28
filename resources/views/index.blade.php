@@ -56,7 +56,6 @@
 	</script>
 
 	<!--dostijeniya-->
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
         $(document).ready(function(){
@@ -760,8 +759,8 @@
 			<form id="main-contact-form" name="contact-form" method="post" action="{{URL::to('/contact')}}" >
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<input type="text" value="@lang('words.name')" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" name="name" id="name">
-				<input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'info@activemoms.club';}" name="email" id="email" type="email">
-				<textarea name="text" id="text" onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;'">@lang('words.letter') *</textarea>
+				<input type="text" value="info@mail.com *" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'info@activemoms.club';}" name="email" id="email">
+				<textarea name="text" type="comment" id="text"  onfocus="if(this.value == 'Message *') this.value='';" onblur="if(this.value == '') this.value='Message *;'">@lang('words.letter') *</textarea>
 				<span class="submit-btn"><input type="submit"  value="@lang('words.send')"></span>
 			</form>
 

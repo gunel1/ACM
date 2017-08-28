@@ -27,7 +27,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title"> Name
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="title" class="form-control col-md-7 col-xs-12"  name="name_en" type="text">
+                                    <input id="title" class="form-control col-md-7 col-xs-12"value="{{ old('name_en')}}"   name="name_en" type="text">
                                 </div>
                             </div>
 
@@ -36,14 +36,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Profession
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="text" class="form-control col-md-7 col-xs-12"  name="profession_en"  type="text">
+                                    <input id="text" class="form-control col-md-7 col-xs-12"  value="{{ old('profession_en')}}" name="profession_en"  type="text">
                                 </div>
                             </div>
                             <div class="item form-group" >
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="text"> Text
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea id="text" class="form-control col-md-7 col-xs-12"  name="text_en"  type="text"></textarea>
+                                    <textarea id="text" class="form-control col-md-7 col-xs-12" value="{{ old('text_en')}}"  name="text_en"  type="text"></textarea>
 
                                 </div>
                             </div>
